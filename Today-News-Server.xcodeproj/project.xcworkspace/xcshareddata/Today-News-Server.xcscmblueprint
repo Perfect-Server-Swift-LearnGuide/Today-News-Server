@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "701154F109CCF61EFD323BBF5A9F928BC65AB589",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6F1260245BD69EFA9A05D126763C86280510C6E1" : 9223372036854775807,
+    "9197B75B1BC29921D6E3B1CCDC2B258350009F3A" : 9223372036854775807,
+    "701154F109CCF61EFD323BBF5A9F928BC65AB589" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "44075746-60CB-4311-9BCA-951AFFE53AC4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6F1260245BD69EFA9A05D126763C86280510C6E1" : "Today-News-Server\/Packages\/PerfectNet-2.0.3\/",
+    "9197B75B1BC29921D6E3B1CCDC2B258350009F3A" : "Today-News-Server\/Packages\/PerfectHTTP-2.0.5\/",
+    "701154F109CCF61EFD323BBF5A9F928BC65AB589" : "Today-News-Server\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Today-News-Server",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Today-News-Server.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PerfectlySoft\/Perfect-Net.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6F1260245BD69EFA9A05D126763C86280510C6E1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Perfect-Server-Swift-LearnGuide\/Today-News-Server.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "701154F109CCF61EFD323BBF5A9F928BC65AB589"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PerfectlySoft\/Perfect-HTTP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9197B75B1BC29921D6E3B1CCDC2B258350009F3A"
+    }
+  ]
+}

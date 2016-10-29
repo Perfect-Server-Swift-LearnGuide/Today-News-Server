@@ -1,0 +1,1 @@
+web: .build/debug/Today-News-Server --port $PORT
