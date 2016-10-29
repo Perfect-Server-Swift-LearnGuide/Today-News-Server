@@ -22,40 +22,26 @@ import PerfectHTTP
 import PerfectHTTPServer
 
 
-
-// Create HTTP server.
+/// 创建服务器
 let server = HTTPServer()
 
-// Register your own routes and handlers
-var routes = Routes()
-routes.add(method: .get, uri: "/", handler: {
-		request, response in
-		response.setHeader(.contentType, value: "text/html")
+/// 创建路由
+let routes = makeRoutes()
 
-        response.appendBody(string: "<html><body>hello Today-News-Severe. It will be a good start</body></html>")
-    
-        response.completed()
-	}
-)
-
-// Add the routes to the server.
+/// 为服务器注册路由
 server.addRoutes(routes)
 
-// Set a listen port of 8181
+/// 监听端口
 server.serverPort = 8181
 
-// Set a document root.
-// This is optional. If you do not want to serve static content then do not set this.
-// Setting the document root will automatically add a static file handler for the route /**
+/// 设置文档根目录
 server.documentRoot = "./webroot"
 
-// Gather command line options and further configure the server.
-// Run the server with --help to see the list of supported arguments.
-// Command line arguments will supplant any of the values set above.
+/// 配置服务器
 configureServer(server)
 
 do {
-	// Launch the HTTP server.
+	/// 启动服务器
 	try server.start()
 } catch PerfectError.networkError(let err, let msg) {
 	print("Network error thrown: \(err) \(msg)")
