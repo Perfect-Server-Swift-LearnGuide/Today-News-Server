@@ -42,7 +42,7 @@ public struct TNRoute {
         /// 文章内容
         var articleContent = Routes()
         /// 注册路由句柄
-        articleContent.add(method: .post, uri: TNServer.TNApi.articleContent.rawValue, handler: TNHandler(handler: .articleContent).handler!)
+        articleContent.add(method: .get, uri: TNServer.TNApi.articleContent.rawValue, handler: TNHandler(handler: .articleContent).handler!)
         return articleContent
     }
 }

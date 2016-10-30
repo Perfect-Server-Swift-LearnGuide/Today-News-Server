@@ -14,19 +14,17 @@ public func articleContentHandler() -> RequestHandler {
     return { request, response in
         setupResponseHeader(response: response)
         let params = request.params()
-        var datas = [[String : AnyObject]]()
-        for param in params {
-            datas.append([ param.0 : param.1 as AnyObject])
-        }
-        print(datas)
-        var json = ""
-        do {
-            json = try datas.jsonEncodedString()
-        } catch  {
-            json = "ERROR"
-        }
+
         
-        response.appendBody(string: json)
+        for param in params {
+            if param.0 != "category" {
+                response.completed()
+                return
+            }
+            let article = TRArticleModel(category: param.1)
+            response.appendBody(string: article.list())
+            
+        }
         
         response.completed()
     }

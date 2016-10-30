@@ -6,14 +6,12 @@
 //
 //
 
-class TNArticleCategoryModel {
+public class TNArticleCategoryModel {
 
-    var categories = [String: Any]()
+    public var categories = [String]()
     
     init(){
         categories = [
-            "code" : 200,
-            "datas" : [
                 "推荐",
                 "热点",
                 "北京",
@@ -33,7 +31,6 @@ class TNArticleCategoryModel {
                 "美女",
                 "健康",
                 "正能量"
-            ]
         ]
     }
     
@@ -42,9 +39,14 @@ class TNArticleCategoryModel {
     }
     
     private func toJsonString() -> String {
+        let categoriesTemp: [String: Any] = [
+            "code" : 200,
+            "datas" : categories
+        ]
+
         var encoded = ""
         do {
-            encoded = try categories.jsonEncodedString()
+            encoded = try categoriesTemp.jsonEncodedString()
         } catch {
             encoded = "ERROR"
         }
