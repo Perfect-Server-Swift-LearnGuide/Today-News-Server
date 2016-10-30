@@ -8,31 +8,35 @@
 
 import PerfectHTTP
 
-enum TNHandler {
+/// Handler
+public enum TNHandlerType {
     /// 获取文章分类
-    case articleCategoryHandler
+    case articleCategory
     /// 获取不同分类新闻内容
-    case articleContentHandler
+    case articleContent
 }
 
-func makeHandler(handler: TNHandler) -> RequestHandler{
+public struct TNHandler {
     
-    switch handler {
-    case .articleCategoryHandler:
-        return { request, response in
-            setupResponseHeader(response: response)
-            articleCategoryHandler(request: request, response: response)
-        }
-    case .articleContentHandler:
-        return { request, response in
-            setupResponseHeader(response: response)
-            articleContentHandler(request: request, response: response)
-        }
-
+    /// 路由处理句柄
+    public var handler: RequestHandler?
+    
+    public init() {
+        
     }
+    
+    public init(handler: TNHandlerType) {
+        
+        switch handler {
+        case .articleCategory:
+            self.handler = articleCategoryHandler()
+        case .articleContent:
+            self.handler = articleContentHandler()
+
+        }
+        
+    }
+
 }
 
-/// 设置响应头
-func setupResponseHeader(response: HTTPResponse) {
-    response.setHeader(.contentType, value: "application/json")
-}
+

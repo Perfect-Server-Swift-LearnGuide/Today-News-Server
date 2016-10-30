@@ -8,11 +8,15 @@
 
 
 
-enum TNServer {
+public enum TNServer {
     
-    enum TNApi: String {
+    /// Api
+    public enum TNApi: String {
+        /// 根Url
         case baseUrl =  "today_news/"
+        /// 文章分类
         case articleCategory =  "article/category"
+        /// 分类对于文章
         case articleContent = "article/content"
     }
 }

@@ -20,22 +20,11 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
+import TNServer
 
 
 /// 创建服务器
-let server = HTTPServer()
-
-/// 创建路由
-let routes = makeRoutes()
-
-/// 为服务器注册路由
-server.addRoutes(routes)
-
-/// 监听端口
-server.serverPort = 8181
-
-/// 设置文档根目录
-server.documentRoot = "./webroot"
+let server = TNServer().server
 
 /// 配置服务器
 configureServer(server)
