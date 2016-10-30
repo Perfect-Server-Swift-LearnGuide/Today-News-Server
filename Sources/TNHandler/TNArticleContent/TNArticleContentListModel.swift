@@ -1,5 +1,5 @@
 //
-//  TRArticleModel.swift
+//  TNArticleContentListModel.swift
 //  Today-News-Server
 //
 //  Created by sunquan on 2016/10/30.
@@ -8,7 +8,7 @@
 
 import PerfectHTTP
 
-public class TRArticleModel {
+public class TNArticleContentListModel {
 
     public var articles: [TNArticleContentModel] {
         get{
@@ -56,8 +56,6 @@ public class TRArticleModel {
         return toString()
     }
     
-    
-    // Convenient encoding method that returns a string from JSON objects.
     private func toString() -> String {
         var out = [String]()
         

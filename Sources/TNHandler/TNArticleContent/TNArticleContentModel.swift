@@ -26,8 +26,8 @@ public class TNArticleContentModel : JSONConvertibleObject {
     }
     override public func getJSONValues() -> [String : Any] {
         return [
-            "title":title,
-            "content":content,
+            "title" : title,
+            "content" : content,
         ]
     }
 }

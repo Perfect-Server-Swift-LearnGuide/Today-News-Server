@@ -6,50 +6,66 @@
 //
 //
 
-public class TNArticleCategoryModel {
+import PerfectLib
 
-    public var categories = [String]()
+public class TNArticleCategoryModel: JSONConvertibleObject {
     
-    init(){
-        categories = [
-                "推荐",
-                "热点",
-                "北京",
-                "视频",
-                "订阅",
-                "数码",
-                "社会",
-                "娱乐",
-                "科技",
-                "汽车",
-                "体育",
-                "财经",
-                "军事",
-                "国际",
-                "段子",
-                "趣图",
-                "美女",
-                "健康",
-                "正能量"
-        ]
+    public var category = ""
+    public var web_url = ""
+    public var flags = 0
+    public var name = ""
+    public var tip_new = 0
+    public var default_add = 0
+    public var concern_id = ""
+    public var type = 0
+    public var icon_url = ""
+    
+    static let registerName = "articleCategoryModel"
+    
+    public init(category: String,
+                        web_url: String,
+                        flags: Int,
+                        name: String,
+                        tip_new: Int,
+                        default_add: Int,
+                        concern_id: String,
+                        type: Int,
+                        icon_url: String
+                        ) {
+        self.category = category
+        self.web_url = web_url
+        self.flags = flags
+        self.name = name
+        self.tip_new = tip_new
+        self.default_add = default_add
+        self.concern_id = concern_id
+        self.type = type
+        self.icon_url = icon_url
     }
     
-    public func list() -> String {
-        return toJsonString()
+    override public func setJSONValues(_ values: [String : Any]) {
+        self.category		= getJSONValue(named: "category", from: values, defaultValue: "")
+        self.web_url		= getJSONValue(named: "web_url", from: values, defaultValue: "")
+        self.flags		= getJSONValue(named: "flags", from: values, defaultValue: 0)
+        self.name		= getJSONValue(named: "name", from: values, defaultValue: "")
+        self.tip_new		= getJSONValue(named: "tip_new", from: values, defaultValue: 0)
+        self.default_add		= getJSONValue(named: "default_add", from: values, defaultValue: 0)
+        self.concern_id		= getJSONValue(named: "concern_id", from: values, defaultValue: "")
+        self.type		= getJSONValue(named: "type", from: values, defaultValue: 0)
+        self.icon_url		= getJSONValue(named: "icon_url", from: values, defaultValue: "")
     }
-    
-    private func toJsonString() -> String {
-        let categoriesTemp: [String: Any] = [
-            "code" : 200,
-            "datas" : categories
+    override public func getJSONValues() -> [String : Any] {
+        return [
+            "category" : category,
+            "web_url" : web_url,
+            "flags" : flags,
+            "name" : name,
+            "tip_new" : tip_new,
+            "default_add" : default_add,
+            "concern_id" : concern_id,
+            "type" : type,
+            "icon_url" : icon_url,
         ]
-
-        var encoded = ""
-        do {
-            encoded = try categoriesTemp.jsonEncodedString()
-        } catch {
-            encoded = "ERROR"
-        }
-        return encoded
     }
 }
+

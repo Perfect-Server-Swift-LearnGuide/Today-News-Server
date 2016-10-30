@@ -21,7 +21,7 @@ public func articleContentHandler() -> RequestHandler {
                 response.completed()
                 return
             }
-            let article = TRArticleModel(category: param.1)
+            let article = TNArticleContentListModel(category: param.1)
             response.appendBody(string: article.list())
             
         }

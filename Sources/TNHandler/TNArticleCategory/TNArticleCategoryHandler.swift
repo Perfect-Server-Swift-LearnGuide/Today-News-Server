@@ -13,8 +13,13 @@ public func articleCategoryHandler() -> RequestHandler {
     
     return { request, response in
         setupResponseHeader(response: response)
-        let articleCategoryModel = TNArticleCategoryModel()
-        response.appendBody(string: articleCategoryModel.list())
+        let params = request.params()
+        
+        for param in params {
+            let categories = TNArticleCategoryListModel()
+            response.appendBody(string: categories.list())
+        }
+        
         response.completed()
     }
 
