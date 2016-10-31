@@ -7,29 +7,69 @@
 //
 
 import PerfectHTTP
+import PerfectLib
+import MongoDB
+import PerfectHTTPServer
 
 public class TNArticleCategoryListModel {
-    public var categories: [TNArticleCategoryModel] {
-        get{
-            var array = [TNArticleCategoryModel]()
-            for _ in 0..<10 {
-                let model = TNArticleCategoryModel(category: "news_hot", web_url: "", flags: 0, name: "热点", tip_new: 0, default_add: 0, concern_id: "", type: 0, icon_url: "")
-                array.append(model)
-            }
-            return array
-        }
-        set{}
-    }
-    
-    
-    init(){
-        categories = [TNArticleCategoryModel]()
-    }
+    public var categories = [TNArticleCategoryModel]()
     
     public func list() -> String {
         return toString()
     }
     
+    public func loadCategories() -> String {
+        /// 创建文件
+        let thisFile = File("category.json")
+        try! thisFile.open(.readWrite)
+        defer {
+            thisFile.close()
+        }
+        
+        var contents = try! thisFile.readString()
+
+        /// 通过默认的端口连接MongoDB
+        let client = try! MongoClient(uri: "mongodb://localhost:27017")
+        /// 获取数据库里的集合
+        let collection = client.getCollection(databaseName: "article", collectionName: "category")
+
+        // 初始化一个空数组用于接收格式化结果
+        var arr = ""
+        for char in contents.characters {
+            if char == "{" {
+            }
+            
+            arr.append(char)
+            if char == "}" {
+                /// 用JSON字符串生成MongoDB所支持的BSON格式
+                let doc = try! BSON(json: arr)
+                /// 将信息存放到集合中
+                let res = collection.remove(selector: doc)
+                let result = collection.save(document: doc)
+                arr = ""
+            }
+        }
+//        print(contents)
+
+
+        /// 获取该集合下所有的信息
+        let cursor = collection.find(query: BSON())
+        /// 获取信息”
+        var index = 0
+        
+        while let c = cursor?.next() {
+            index = index + 1
+            print(index)
+             let dict = modelJSON(bson: c)
+            categories.append(TNArticleCategoryModel.modelWithDict(dict: dict as! [String : AnyObject]))
+        }
+        defer {
+            /// 关闭连接
+            collection.close()
+            client.close()
+        }
+        return list()
+    }
     
     public func add(_ request: HTTPRequest) -> String {
         let new = TNArticleCategoryModel(
@@ -83,4 +123,14 @@ public class TNArticleCategoryListModel {
         return "[\(out.joined(separator: ","))]"
     }
     
+    /// 将一个包含ObjectId的BSON对象转换为包含id的字典
+    func modelJSON(bson: BSON) -> JSONConvertible {
+        let json = bson.asString
+
+        let jsonDict = try! json.jsonDecode()
+        print( Mirror(reflecting: jsonDict) )
+//        print(jsonDict)
+//        print("\n\n")
+        return jsonDict
+    }
 }

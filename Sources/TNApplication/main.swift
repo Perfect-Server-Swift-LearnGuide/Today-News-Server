@@ -21,6 +21,27 @@ import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
 import TNServer
+import TNCommon
+
+
+/// 设定工作目录
+let workingDir = Dir(TNServer.TNDir.resource.rawValue)
+if !workingDir.exists {
+    do {
+        try workingDir.create()
+        print("Working Directory (\(workingDir.path)) for examples created.")
+    } catch {
+        print("Could not create Working Directory.")
+    }
+}
+/// 设置工作空间
+do {
+    try workingDir.setAsWorkingDir()
+    print("Working Directory set.")
+} catch {
+    print("Could not set Working Directory.")
+}
+
 
 
 /// 创建服务器

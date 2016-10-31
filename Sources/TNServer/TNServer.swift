@@ -46,6 +46,8 @@ public struct TNServer {
         
         /// 设置文档根目录
         server.documentRoot = "./webroot"
+
     }
+
 
 }
