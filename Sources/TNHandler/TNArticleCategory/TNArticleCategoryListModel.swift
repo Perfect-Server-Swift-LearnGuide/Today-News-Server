@@ -35,19 +35,33 @@ public class TNArticleCategoryListModel {
 
         // 初始化一个空数组用于接收格式化结果
         var arr = ""
+        
         for char in contents.characters {
+
+            var start = contents.startIndex
+            var end = contents.endIndex
             if char == "{" {
+                start = contents.index(before: char)
             }
             
-            arr.append(char)
             if char == "}" {
-                /// 用JSON字符串生成MongoDB所支持的BSON格式
-                let doc = try! BSON(json: arr)
-                /// 将信息存放到集合中
-                let res = collection.remove(selector: doc)
-                let result = collection.save(document: doc)
-                arr = ""
+                end = contents.characters.index(of: char)!
+//                var range = Range<String.CharacterView.Index>(start: start, end: end)
+                let str = contents.substring(with: Range<String.Index>)
+                print("\(str)\n")
+                continue
             }
+            
+            
+//            arr.append(char)
+//            if char == "}" {
+//                /// 用JSON字符串生成MongoDB所支持的BSON格式
+//                let doc = try! BSON(json: arr)
+//                /// 将信息存放到集合中
+//                let res = collection.remove(selector: doc)
+//                let result = collection.save(document: doc)
+//                arr = ""
+//            }
         }
 //        print(contents)
 
