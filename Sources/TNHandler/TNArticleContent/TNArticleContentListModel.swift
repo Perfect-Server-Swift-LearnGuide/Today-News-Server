@@ -12,12 +12,12 @@ public class TNArticleContentListModel {
 
     public var articles: [TNArticleContentModel] {
         get{
-            self.articles.removeAll()
+            var array = [TNArticleContentModel]()
             for _ in 0..<10 {
                 let model = TNArticleContentModel(title: "cccccc", content: "我是dddddddddd")
-                self.articles.append(model)
+                array.append(model)
             }
-            return self.articles
+            return array
         }
         set{}
     }

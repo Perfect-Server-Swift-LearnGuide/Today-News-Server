@@ -7,8 +7,9 @@
 //
 
 import PerfectLib
+import TNCommon
 
-public class TNArticleContentModel : JSONConvertibleObject {
+public class TNArticleContentModel : JSONConvertibleObject, TNJSONConvertibleProtocol {
     public var title = ""
     public var content = ""
     public var category = "" 
@@ -21,14 +22,11 @@ public class TNArticleContentModel : JSONConvertibleObject {
     }
     
     override public func setJSONValues(_ values: [String : Any]) {
-        self.title		= getJSONValue(named: "title", from: values, defaultValue: "")
-        self.content		= getJSONValue(named: "content", from: values, defaultValue: "")
+        title		= getJSONValue(named: "title", from: values, defaultValue: "")
+        content		= getJSONValue(named: "content", from: values, defaultValue: "")
     }
     override public func getJSONValues() -> [String : Any] {
-        return [
-            "title" : title,
-            "content" : content,
-        ]
+        return valuesToJSON()
     }
 }
 

@@ -12,20 +12,12 @@ import PerfectHTTP
 public func articleCategoryHandler() -> RequestHandler {
     
     return { request, response in
-        setupResponseHeader(response: response)
-        let params = request.params()
-        
-        for param in params {
-            let categories = TNArticleCategoryListModel()
-            response.appendBody(string: categories.list())
-        }
+
+        let categories = TNArticleCategoryListModel()
+        response.appendBody(string: categories.list())
         
         response.completed()
     }
 
 }
 
-/// 设置响应头
-private func setupResponseHeader(response: HTTPResponse) {
-    response.setHeader(.contentType, value: "application/json")
-}

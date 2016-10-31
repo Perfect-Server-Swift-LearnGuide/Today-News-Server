@@ -12,7 +12,7 @@ import PerfectHTTP
 public func articleContentHandler() -> RequestHandler {
     
     return { request, response in
-        setupResponseHeader(response: response)
+
         let params = request.params()
 
         
@@ -31,7 +31,3 @@ public func articleContentHandler() -> RequestHandler {
 
 }
 
-/// 设置响应头
-private func setupResponseHeader(response: HTTPResponse) {
-    response.setHeader(.contentType, value: "application/json")
-}

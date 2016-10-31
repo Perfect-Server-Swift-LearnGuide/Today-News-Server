@@ -1,0 +1,30 @@
+//
+//  JSONProtocol.swift
+//  Today-News-Server
+//
+//  Created by 百城 on 16/10/31.
+//
+//
+
+import PerfectLib
+
+public protocol TNJSONConvertibleProtocol {
+    
+    func valuesToJSON() -> [String : Any]
+    
+//    func JSONToValues(_ values: [String:Any])
+}
+
+public extension TNJSONConvertibleProtocol {
+    func valuesToJSON() -> [String : Any] {
+        let mirror = Mirror(reflecting: self)
+        var dict = [String: AnyObject]()
+        for child in mirror.children {
+            let value = child.value
+            if let key = child.label {
+                dict.updateValue(value as AnyObject, forKey: key)
+            }
+        }
+        return dict
+    }
+}

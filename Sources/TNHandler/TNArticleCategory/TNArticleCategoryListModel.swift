@@ -11,12 +11,12 @@ import PerfectHTTP
 public class TNArticleCategoryListModel {
     public var categories: [TNArticleCategoryModel] {
         get{
-            self.categories.removeAll()
+            var array = [TNArticleCategoryModel]()
             for _ in 0..<10 {
                 let model = TNArticleCategoryModel(category: "news_hot", web_url: "", flags: 0, name: "热点", tip_new: 0, default_add: 0, concern_id: "", type: 0, icon_url: "")
-                self.categories.append(model)
+                array.append(model)
             }
-            return self.categories
+            return array
         }
         set{}
     }
@@ -37,10 +37,10 @@ public class TNArticleCategoryListModel {
             web_url : request.param(name: "web_url")!,
             flags : Int(request.param(name: "flags")!)!,
             name : request.param(name: "name")!,
-            tip_new : request.param(name: "tip_new")!,
-            default_add : request.param(name: "default_add")!,
+            tip_new : Int(request.param(name: "tip_new")!)!,
+            default_add : Int(request.param(name: "default_add")!)!,
             concern_id : request.param(name: "concern_id")!,
-            type : request.param(name: "type")!,
+            type : Int(request.param(name: "type")!)!,
             icon_url : request.param(name: "icon_url")!
         )
         categories.append(new)
@@ -51,8 +51,17 @@ public class TNArticleCategoryListModel {
         do {
             let incoming = try json.jsonDecode() as! [String: String]
             let new = TNArticleCategoryModel(
-                title: incoming["title"]!,
-                content: incoming["content"]!
+                
+                category : incoming[ "category"]!,
+                web_url : incoming[ "web_url"]!,
+                flags : Int(incoming[ "flags"]!)!,
+                name : incoming[ "name"]!,
+                tip_new : Int(incoming[ "tip_new"]!)!,
+                default_add : Int(incoming[ "default_add"]!)!,
+                concern_id : incoming[ "concern_id"]!,
+                type : Int(incoming[ "type"]!)!,
+                icon_url : incoming[ "icon_url"]!
+                
             )
             categories.append(new)
         } catch {
@@ -64,7 +73,7 @@ public class TNArticleCategoryListModel {
     private func toString() -> String {
         var out = [String]()
         
-        for m in self.articles {
+        for m in self.categories {
             do {
                 out.append(try m.jsonEncodedString())
             } catch {

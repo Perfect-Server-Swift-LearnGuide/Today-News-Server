@@ -6,7 +6,7 @@ let package = Package(
         Target(name: "TNApplication", dependencies: ["TNServer"]),
         Target(name: "TNServer", dependencies: ["TNRoute"]),
         Target(name: "TNCommon", dependencies: []),
-        Target(name: "TNHandler", dependencies: []),
+        Target(name: "TNHandler", dependencies: ["TNCommon"]),
         Target(name: "TNRoute", dependencies: ["TNHandler", "TNCommon"])
     ],
 	dependencies: [

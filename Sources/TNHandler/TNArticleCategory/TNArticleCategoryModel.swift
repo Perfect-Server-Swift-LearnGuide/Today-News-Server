@@ -7,8 +7,9 @@
 //
 
 import PerfectLib
+import TNCommon
 
-public class TNArticleCategoryModel: JSONConvertibleObject {
+public class TNArticleCategoryModel: JSONConvertibleObject, TNJSONConvertibleProtocol {
     
     public var category = ""
     public var web_url = ""
@@ -44,28 +45,18 @@ public class TNArticleCategoryModel: JSONConvertibleObject {
     }
     
     override public func setJSONValues(_ values: [String : Any]) {
-        self.category		= getJSONValue(named: "category", from: values, defaultValue: "")
-        self.web_url		= getJSONValue(named: "web_url", from: values, defaultValue: "")
-        self.flags		= getJSONValue(named: "flags", from: values, defaultValue: 0)
-        self.name		= getJSONValue(named: "name", from: values, defaultValue: "")
-        self.tip_new		= getJSONValue(named: "tip_new", from: values, defaultValue: 0)
-        self.default_add		= getJSONValue(named: "default_add", from: values, defaultValue: 0)
-        self.concern_id		= getJSONValue(named: "concern_id", from: values, defaultValue: "")
-        self.type		= getJSONValue(named: "type", from: values, defaultValue: 0)
-        self.icon_url		= getJSONValue(named: "icon_url", from: values, defaultValue: "")
+        category		= getJSONValue(named: "category", from: values, defaultValue: "")
+        web_url		= getJSONValue(named: "web_url", from: values, defaultValue: "")
+        flags		= getJSONValue(named: "flags", from: values, defaultValue: 0)
+        name		= getJSONValue(named: "name", from: values, defaultValue: "")
+        tip_new		= getJSONValue(named: "tip_new", from: values, defaultValue: 0)
+        default_add		= getJSONValue(named: "default_add", from: values, defaultValue: 0)
+        concern_id		= getJSONValue(named: "concern_id", from: values, defaultValue: "")
+        type		= getJSONValue(named: "type", from: values, defaultValue: 0)
+        icon_url		= getJSONValue(named: "icon_url", from: values, defaultValue: "")
     }
     override public func getJSONValues() -> [String : Any] {
-        return [
-            "category" : category,
-            "web_url" : web_url,
-            "flags" : flags,
-            "name" : name,
-            "tip_new" : tip_new,
-            "default_add" : default_add,
-            "concern_id" : concern_id,
-            "type" : type,
-            "icon_url" : icon_url,
-        ]
+        return valuesToJSON()
     }
 }
 
