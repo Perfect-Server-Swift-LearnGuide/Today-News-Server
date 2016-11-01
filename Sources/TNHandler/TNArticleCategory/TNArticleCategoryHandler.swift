@@ -13,7 +13,12 @@ public func articleCategoryHandler() -> RequestHandler {
     
     return { request, response in
         let categories = TNArticleCategoryListModel()
-        response.appendBody(string: categories.loadCategories())
+        
+        var result = [String : Any]()
+        result["message"] = "success"
+        result["data"] = categories.loadCategories()
+        
+        response.appendBody(string: try! result.jsonEncodedString())
         
         response.completed()
     }
