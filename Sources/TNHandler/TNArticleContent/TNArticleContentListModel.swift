@@ -27,11 +27,8 @@ public class TNArticleContentListModel {
         articles = [TNArticleContentModel]()
     }
     
-    public func list() -> String {
-        return toString()
-    }
-    
 
+    // MARK: - 添加方法
     public func add(_ request: HTTPRequest) -> String {
         let new = TNArticleContentModel(
             title: request.param(name: "title")!,
@@ -53,6 +50,11 @@ public class TNArticleContentListModel {
         } catch {
             return "ERROR"
         }
+        return toString()
+    }
+    
+    // MARK: - 辅助方法
+    public func list() -> String {
         return toString()
     }
     

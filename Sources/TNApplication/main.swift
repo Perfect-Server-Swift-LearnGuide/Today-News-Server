@@ -44,41 +44,6 @@ do {
 }
 
 
-///// 创建文件
-//let thisFile = File("category.json")
-//try! thisFile.open(.readWrite)
-//defer {
-//    thisFile.close()
-//}
-//
-//var contents = try! thisFile.readString()
-////print(contents)
-//print("++++++++")
-//var start = contents.characters.startIndex
-//var end = contents.characters.endIndex
-//
-//
-//var tempStr = contents
-//for index in 0...contents.characters.count {
-//    
-//    let char = contents.charAt(index: index)
-//    if char == "{" {
-//        start = tempStr.characters.index(of: char!)!
-//    }
-//    
-//    if char == "}" {
-//        end = tempStr.characters.index(of: char!)!
-//        var substring = String(tempStr.characters[start ... end])
-//        tempStr = contents[contents.index(contents.startIndex, offsetBy: index + 1) ..< contents.characters.endIndex]
-//        substring.replaceSubrange(substring.startIndex...substring.index(substring.startIndex, offsetBy: 1), with: "[")
-//        substring.replaceSubrange(substring.index(substring.endIndex, offsetBy: -1)..<substring.endIndex, with: "]")
-//        print(substring)
-//
-//    }
-//    
-//}
-
-
 /// 创建服务器
 let server = TNServer().server
 

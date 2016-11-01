@@ -48,27 +48,14 @@ public class TNArticleCategoryModel: JSONConvertibleObject, TNJSONConvertiblePro
         
     }
     
+    /// 字典转模型
     public static func modelWithDict(dict: [String : AnyObject]) -> TNArticleCategoryModel {
-
-//        let model = TNArticleCategoryModel(
-//            category: dict[ "category"] as? String,
-//            web_url: dict[ "web_url"] as? String,
-//            flags: dict[ "flags"] as! Int,
-//            name: dict[ "name"] as! String,
-//            tip_new: dict[ "tip_new"] as! Int,
-//            default_add: dict[ "default_add"]as! Int,
-//            concern_id: dict[ "concern_id"] as! String,
-//            type: dict[ "type"] as! Int,
-//            icon_url: dict[ "icon_url"] as! String
-//        )
-//
         let model = TNArticleCategoryModel()
-//        print(dict)
         model.setJSONValues(dict)
-//        let model = TNArticleCategoryModel(category: "", web_url: "", flags: 0, name: "", tip_new: 0, default_add: 0, concern_id: "", type: 0, icon_url: "")
         return model
     }
     
+    // MARK: - JSONConvertibleObject
     override public func setJSONValues(_ values: [String : Any]) {
         category		= getJSONValue(named: "category", from: values, defaultValue: "")
         web_url		= getJSONValue(named: "web_url", from: values, defaultValue: "")

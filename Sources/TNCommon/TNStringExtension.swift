@@ -7,7 +7,8 @@
 //
 
 public extension String{
-    public func charAt(index:Int)->Character?{
+    
+    public func charAt(index:Int) -> Character?{
         if index >= self.characters.count || index < 0{
             return nil
         }

@@ -8,8 +8,10 @@
 
 import PerfectLib
 
+/// 模型属性转JSON
 public protocol TNJSONConvertibleProtocol {
     
+    /// 模型属性转JSON
     func valuesToJSON() -> [String : Any]
     
 //    func JSONToValues(_ values: [String:Any])
@@ -27,4 +29,5 @@ public extension TNJSONConvertibleProtocol {
         }
         return dict
     }
+    
 }
