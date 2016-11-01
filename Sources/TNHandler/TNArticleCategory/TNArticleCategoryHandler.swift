@@ -12,7 +12,6 @@ import PerfectHTTP
 public func articleCategoryHandler() -> RequestHandler {
     
     return { request, response in
-
         let categories = TNArticleCategoryListModel()
         response.appendBody(string: categories.loadCategories())
         

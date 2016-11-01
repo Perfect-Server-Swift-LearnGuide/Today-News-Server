@@ -18,69 +18,61 @@ public class TNArticleCategoryListModel {
         return toString()
     }
     
+    /// 加载首页分类数据
     public func loadCategories() -> String {
+
         /// 创建文件
         let thisFile = File("category.json")
         try! thisFile.open(.readWrite)
         defer {
             thisFile.close()
         }
-        
+        /// 读取文件到数据库
         var contents = try! thisFile.readString()
-
+        var start = contents.characters.startIndex
+        var end = contents.characters.endIndex
         /// 通过默认的端口连接MongoDB
-        let client = try! MongoClient(uri: "mongodb://localhost:27017")
+        let client = try! MongoClient(uri: "mongodb://localhost")
         /// 获取数据库里的集合
-        let collection = client.getCollection(databaseName: "article", collectionName: "category")
-
-        // 初始化一个空数组用于接收格式化结果
-        var arr = ""
+        let db = client.getDatabase(name: "article")
+        let collection = db.getCollection(name: "category")
         
-        for char in contents.characters {
+        var tempStr = contents
+        var numberID = 0
+        for index in 0...contents.characters.count {
 
-            var start = contents.startIndex
-            var end = contents.endIndex
+            let char = contents.charAt(index: index)
             if char == "{" {
-                start = contents.index(before: char)
+                start = tempStr.characters.index(of: char!)!
             }
             
             if char == "}" {
-                end = contents.characters.index(of: char)!
-//                var range = Range<String.CharacterView.Index>(start: start, end: end)
-                let str = contents.substring(with: Range<String.Index>)
-                print("\(str)\n")
-                continue
+                end = tempStr.characters.index(of: char!)!
+                var substring = String(tempStr.characters[start ... end])
+                tempStr = contents[contents.index(contents.startIndex, offsetBy: index + 1) ..< contents.characters.endIndex]
+//                substring.replaceSubrange(substring.startIndex...substring.index(substring.startIndex, offsetBy: 1), with: "[")
+//                substring.replaceSubrange(substring.index(substring.endIndex, offsetBy: -1)..<substring.endIndex, with: "]")
+                /// 生成_id
+                numberID = numberID + 1
+                
+                let doc = try! BSON(json: substring)
+                doc.append(key: "_id", int: numberID)
+                // 将信息存放到集合中
+                let result = collection?.save(document: doc)
             }
-            
-            
-//            arr.append(char)
-//            if char == "}" {
-//                /// 用JSON字符串生成MongoDB所支持的BSON格式
-//                let doc = try! BSON(json: arr)
-//                /// 将信息存放到集合中
-//                let res = collection.remove(selector: doc)
-//                let result = collection.save(document: doc)
-//                arr = ""
-//            }
         }
-//        print(contents)
-
-
-        /// 获取该集合下所有的信息
-        let cursor = collection.find(query: BSON())
-        /// 获取信息”
-        var index = 0
         
+        /// 获取该集合下所有的信息
+        let cursor = collection?.find(query: BSON())
         while let c = cursor?.next() {
-            index = index + 1
-            print(index)
              let dict = modelJSON(bson: c)
             categories.append(TNArticleCategoryModel.modelWithDict(dict: dict as! [String : AnyObject]))
         }
         defer {
             /// 关闭连接
-            collection.close()
+            collection?.close()
             client.close()
+            db.close()
         }
         return list()
     }
@@ -140,11 +132,8 @@ public class TNArticleCategoryListModel {
     /// 将一个包含ObjectId的BSON对象转换为包含id的字典
     func modelJSON(bson: BSON) -> JSONConvertible {
         let json = bson.asString
-
         let jsonDict = try! json.jsonDecode()
-        print( Mirror(reflecting: jsonDict) )
-//        print(jsonDict)
-//        print("\n\n")
+        
         return jsonDict
     }
 }
