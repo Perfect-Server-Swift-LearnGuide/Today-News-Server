@@ -12,5 +12,5 @@ MongoDB Mac查看工具
 ---
 
 ### Tips
-项目用到以下数据库，请使用 ** use DATABASE_NAME ** 指令自行创建
+项目用到以下数据库，请使用 <strong>use DATABASE_NAME</strong> 指令自行创建
 - 文章分类数据库 [article]
