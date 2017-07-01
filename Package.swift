@@ -3,6 +3,7 @@ import PackageDescription
 let package = Package(
 	name: "Today-News-Server",
 	targets: [
+
         Target(name: "TNApplication", dependencies: ["TNServer"]),
         Target(name: "TNCommon", dependencies: []),
         Target(name: "TNServer", dependencies: ["TNRoute"]),
