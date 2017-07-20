@@ -694,7 +694,6 @@
 		OBJ_1821 /* ArticleCategoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_803 /* ArticleCategoryHandler.swift */; };
 		OBJ_1822 /* ArticleCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_804 /* ArticleCategoryModel.swift */; };
 		OBJ_1823 /* ArticleContentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_806 /* ArticleContentHandler.swift */; };
-		OBJ_1824 /* ArticleContentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_807 /* ArticleContentListModel.swift */; };
 		OBJ_1825 /* ArticleContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_808 /* ArticleContentModel.swift */; };
 		OBJ_1827 /* PerfectLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_816 /* PerfectLib.framework */; };
 		OBJ_1828 /* PerfectThread.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_817 /* PerfectThread.framework */; };
@@ -2394,7 +2393,6 @@
 		OBJ_803 /* ArticleCategoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryHandler.swift; sourceTree = "<group>"; };
 		OBJ_804 /* ArticleCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryModel.swift; sourceTree = "<group>"; };
 		OBJ_806 /* ArticleContentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentHandler.swift; sourceTree = "<group>"; };
-		OBJ_807 /* ArticleContentListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentListModel.swift; sourceTree = "<group>"; };
 		OBJ_808 /* ArticleContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentModel.swift; sourceTree = "<group>"; };
 		OBJ_81 /* bio_lib.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bio_lib.c; sourceTree = "<group>"; };
 		OBJ_810 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -3636,7 +3634,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_806 /* ArticleContentHandler.swift */,
-				OBJ_807 /* ArticleContentListModel.swift */,
 				OBJ_808 /* ArticleContentModel.swift */,
 			);
 			path = ArticleContent;
@@ -4279,7 +4276,6 @@
 				OBJ_1821 /* ArticleCategoryHandler.swift in Sources */,
 				OBJ_1822 /* ArticleCategoryModel.swift in Sources */,
 				OBJ_1823 /* ArticleContentHandler.swift in Sources */,
-				OBJ_1824 /* ArticleContentListModel.swift in Sources */,
 				OBJ_1825 /* ArticleContentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

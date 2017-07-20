@@ -13,18 +13,15 @@ public func articleContentHandler() -> RequestHandler {
     
     return { request, response in
 
-        let params = request.params()
-
-        
-        for param in params {
-            if param.0 != "category" {
-                response.completed()
-                return
-            }
-            let article = ArticleContentListModel(category: param.1)
-            response.appendBody(string: article.list())
-            
+        var type = 1
+        if let page = request.param(name: "type") {
+            type = Int(page)!
         }
+        
+        
+        let db = ArticleContentModel()
+        response.appendBody(string: db.content(type: type))
+
         
         response.completed()
     }
