@@ -1,5 +1,5 @@
 //
-//  TNArticleContentHandler.swift
+//  ArticleContentHandler.swift
 //  Today-News-Server
 //
 //  Created by 百城 on 16/10/29.
@@ -21,7 +21,7 @@ public func articleContentHandler() -> RequestHandler {
                 response.completed()
                 return
             }
-            let article = TNArticleContentListModel(category: param.1)
+            let article = ArticleContentListModel(category: param.1)
             response.appendBody(string: article.list())
             
         }

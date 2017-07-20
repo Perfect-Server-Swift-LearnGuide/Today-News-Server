@@ -1,5 +1,5 @@
 //
-//  TNHandler.swift
+//  Handler.swift
 //  Today-News-Server
 //
 //  Created by 百城 on 16/10/29.
@@ -8,15 +8,9 @@
 
 import PerfectHTTP
 
-/// Handler
-public enum TNHandlerType {
-    /// 获取文章分类
-    case articleCategory
-    /// 获取不同分类新闻内容
-    case articleContent
-}
 
-public struct TNHandler {
+
+public struct Handler {
     
     /// 路由处理句柄
     public var handler: RequestHandler?
@@ -25,7 +19,7 @@ public struct TNHandler {
         
     }
     
-    public init(handler: TNHandlerType) {
+    public init(_ handler: HandlerType) {
         
         switch handler {
         case .articleCategory:

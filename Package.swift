@@ -4,11 +4,12 @@ let package = Package(
 	name: "Today-News-Server",
 	targets: [
 
-        Target(name: "TNApplication", dependencies: ["TNServer"]),
-        Target(name: "TNCommon", dependencies: []),
-        Target(name: "TNServer", dependencies: ["TNRoute"]),
-        Target(name: "TNHandler", dependencies: ["TNCommon"]),
-        Target(name: "TNRoute", dependencies: ["TNHandler", "TNCommon"])
+        Target(name: "Application", dependencies: ["Server"]),
+        Target(name: "Common", dependencies: []),
+        Target(name: "DataBase", dependencies: []),
+        Target(name: "Server", dependencies: ["Route"]),
+        Target(name: "Handler", dependencies: ["Common", "DataBase"]),
+        Target(name: "Route", dependencies: ["Handler", "Common"])
     ],
 	dependencies: [
         .Package(

@@ -1,5 +1,5 @@
 //
-//  TNArticleContentModel.swift
+//  ArticleContentModel.swift
 //  Today-News-Server
 //
 //  Created by 百城 on 16/10/29.
@@ -7,9 +7,9 @@
 //
 
 import PerfectLib
-import TNCommon
+import Common
 
-public class TNArticleContentModel : JSONConvertibleObject, TNJSONConvertibleProtocol {
+public class ArticleContentModel : JSONConvertibleObject, JSONConvertibleProtocol {
     public var title = ""
     public var content = ""
     public var category = "" 

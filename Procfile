@@ -1,1 +1,1 @@
-web: .build/release/TNServer --port $PORT
+web: .build/release/TodayNewsServer --port $PORT

@@ -1,5 +1,5 @@
 //
-//  TNArticleContentListModel.swift
+//  ArticleContentListModel.swift
 //  Today-News-Server
 //
 //  Created by sunquan on 2016/10/30.
@@ -8,13 +8,13 @@
 
 import PerfectHTTP
 
-public class TNArticleContentListModel {
+public class ArticleContentListModel {
 
-    public var articles: [TNArticleContentModel] {
+    public var articles: [ArticleContentModel] {
         get{
-            var array = [TNArticleContentModel]()
+            var array = [ArticleContentModel]()
             for _ in 0..<10 {
-                let model = TNArticleContentModel(title: "cccccc", content: "我是dddddddddd")
+                let model = ArticleContentModel(title: "cccccc", content: "我是dddddddddd")
                 array.append(model)
             }
             return array
@@ -24,13 +24,13 @@ public class TNArticleContentListModel {
     
 
     init(category: String){
-        articles = [TNArticleContentModel]()
+        articles = [ArticleContentModel]()
     }
     
 
     // MARK: - 添加方法
     public func add(_ request: HTTPRequest) -> String {
-        let new = TNArticleContentModel(
+        let new = ArticleContentModel(
             title: request.param(name: "title")!,
             content: request.param(name: "content")!
 
@@ -42,7 +42,7 @@ public class TNArticleContentListModel {
     public func add(_ json: String) -> String {
         do {
             let incoming = try json.jsonDecode() as! [String: String]
-            let new = TNArticleContentModel(
+            let new = ArticleContentModel(
                 title: incoming["title"]!,
                 content: incoming["content"]!
             )

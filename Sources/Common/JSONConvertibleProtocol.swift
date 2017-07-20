@@ -9,7 +9,7 @@
 import PerfectLib
 
 /// 模型属性转JSON
-public protocol TNJSONConvertibleProtocol {
+public protocol JSONConvertibleProtocol {
     
     /// 模型属性转JSON
     func valuesToJSON() -> [String : Any]
@@ -17,7 +17,7 @@ public protocol TNJSONConvertibleProtocol {
 //    func JSONToValues(_ values: [String:Any])
 }
 
-public extension TNJSONConvertibleProtocol {
+public extension JSONConvertibleProtocol {
     func valuesToJSON() -> [String : Any] {
         let mirror = Mirror(reflecting: self)
         var dict = [String: AnyObject]()

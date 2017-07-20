@@ -1,5 +1,0 @@
-module CHTTPParser {
-    umbrella "/Users/weiwang/Today-News-Server/Packages/PerfectHTTPServer-2.0.3/Sources/CHTTPParser/include"
-    link "CHTTPParser"
-    export *
-}
