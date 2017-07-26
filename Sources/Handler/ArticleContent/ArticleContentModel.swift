@@ -38,19 +38,29 @@ public class ArticleContentModel {
         fields.append(key: "createtime", int: 1)
         fields.append(key: "type", int: 1)
         fields.append(key: "source", int: 1)
+        fields.append(key: "thumbnails", int: 1)
         let limit = 6
         let skip = limit * (page - 1)
         let cursor = collection?.find(query: queryBson, fields: fields, flags: MongoQueryFlag.none, skip: skip, limit: limit, batchSize: 0)
 
         var ary = [Any]()
         while let c = cursor?.next() {
-            let data = c.dict
+            var data:[String: Any] = c.dict as [String : Any]
+            let bson = BSON()
+            let temp = data["_id"] as? [String : String]
+            if let dict = temp {
+                bson.append(key: "article_id", oid: BSON.OID(dict["$oid"]! as String))
+            } else {
+                bson.append(key: "article_id", oid: BSON.OID(""))
+            }
+
+            data["comment_count"] = ArticleCommentModel().comment_count(article_bson:bson)
             ary.append(data)
         }
         var response = [String:Any]()
         if ary.count > 0 {
             response["result"] = "success"
-            response["total"] = total()
+            response["total"] = total(query: queryBson)
             response["data"] = ary
         } else {
             response["result"] = "error"
@@ -63,8 +73,8 @@ public class ArticleContentModel {
 
     
     /// get total num
-    public func total() -> Int {
-        let result: MongoResult = collection!.count(query: BSON())
+    public func total(query: BSON) -> Int {
+        let result: MongoResult = collection!.count(query: query)
         switch result {
         case .replyInt(let total):
             return total
