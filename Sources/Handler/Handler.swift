@@ -24,9 +24,16 @@ public struct Handler {
         switch handler {
         case .articleCategory:
             self.handler = articleCategoryHandler()
+            
         case .articleContent:
             self.handler = articleContentHandler()
-
+            
+        case .userTabs:
+            self.handler = userTabHandler()
+            
+        default:
+            print("default")
+            
         }
         
     }

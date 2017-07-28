@@ -14,4 +14,7 @@ public enum HandlerType {
     
     /// 获取不同分类新闻内容
     case articleContent
+    
+    /// 获取用户tabs
+    case userTabs
 }

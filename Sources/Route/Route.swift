@@ -25,6 +25,9 @@ public struct Route {
         /// 文章内容
         baseRoutes.add(method: .get, uri: Server.Api.articleContent.rawValue, handler: Handler(.articleContent).handler!)
         
+        /// 用户tabs
+        baseRoutes.add(method: .get, uri: Server.Api.userTabs.rawValue, handler: Handler(.userTabs).handler!)
+        
         /// 注册到服务器主路由表上
         self.routes.add(baseRoutes)
     }

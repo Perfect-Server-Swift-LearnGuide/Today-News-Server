@@ -18,6 +18,8 @@ public enum Server {
         case articleCategory =  "article/category"
         /// 分类对于文章
         case articleContent = "article/content"
+        /// 用户tabs
+        case userTabs = "user/tabs"
     }
     
 }
