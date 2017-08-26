@@ -12,7 +12,12 @@ public let app = [
     "hostroot"                          :                   "./webroot",
 
     /// 上传文件路径
-    "upload"                            :                   "upload_files"
+    "upload"                            :                   "upload_files",
+    
+    /// 图片路径
+    "imghost"                           :                   "http://127.0.0.1:8282"
+    
+    
     
     
 ] as [String: Any]

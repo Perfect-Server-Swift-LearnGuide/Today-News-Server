@@ -10,6 +10,7 @@ import PerfectLib
 import Common
 import MongoDB
 import DataBase
+import Config
 
 public class ArticleContentModel {
     
@@ -53,7 +54,18 @@ public class ArticleContentModel {
             } else {
                 bson.append(key: "article_id", oid: BSON.OID(""))
             }
+            
+            var thumbnails = [String]()
+            if let imgArr = data["thumbnails"] as? [String] {
+                for img in imgArr {
+                    var thumbnail = img
+                    thumbnail.removeSubrange(thumbnail.startIndex..<thumbnail.index(after: thumbnail.startIndex))
+                    thumbnails.append(app["imghost"] as! String + thumbnail)
+                }
+            }
 
+            data["thumbnails"] = thumbnails
+            
             data["comment_count"] = ArticleCommentModel().comment_count(article_bson:bson)
             ary.append(data)
         }
