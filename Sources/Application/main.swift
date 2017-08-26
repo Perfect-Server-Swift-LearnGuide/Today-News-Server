@@ -31,6 +31,10 @@ let server = Server().server
 /// 配置服务器
 configureServer(server)
 
+var routes = Routes()
+
+server.addRoutes(routes)
+
 do {
 	/// 启动服务器
 	try server.start()

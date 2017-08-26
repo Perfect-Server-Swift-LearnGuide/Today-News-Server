@@ -11,22 +11,26 @@ import Common
 import Handler
 
 public struct Route {
+    
     /// 路由
     public var routes = Routes()
     
     public init() {
 
         /// 设置主路由
-        var baseRoutes = Routes(baseUri: Server.Api.baseUrl.rawValue)
+        var baseRoutes = Routes(baseUri: HandlerType.baseUrl.rawValue)
         
-        /// 文章分类
-        baseRoutes.add(method: .get, uri: Server.Api.articleCategory.rawValue, handler: Handler(.articleCategory).handler!)
+        /// 文章
+        let article = Article.article()
         
-        /// 文章内容
-        baseRoutes.add(method: .get, uri: Server.Api.articleContent.rawValue, handler: Handler(.articleContent).handler!)
+        /// 用户
+        let user = User.user()
         
-        /// 用户tabs
-        baseRoutes.add(method: .get, uri: Server.Api.userTabs.rawValue, handler: Handler(.userTabs).handler!)
+        /// 文章
+        baseRoutes.add(method: .get, uri: "article/{action}", handler: article)
+        
+        /// 用户
+        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
         
         /// 注册到服务器主路由表上
         self.routes.add(baseRoutes)

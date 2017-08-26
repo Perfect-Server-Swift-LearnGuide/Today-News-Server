@@ -12,14 +12,15 @@ public enum Server {
     
     /// Api
     public enum Api: String {
-        /// 根Url
-        case baseUrl =  "Api/"
-        /// 文章分类
-        case articleCategory =  "article/category"
-        /// 分类对于文章
-        case articleContent = "article/content"
-        /// 用户tabs
-        case userTabs = "user/tabs"
+        
+        case api
+    }
+    
+    /// 目录
+    public enum Dir: String {
+        
+        case dir
+        
     }
     
 }

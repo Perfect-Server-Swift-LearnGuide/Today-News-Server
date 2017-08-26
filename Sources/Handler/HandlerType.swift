@@ -8,13 +8,29 @@
 
 
 /// Handler
-public enum HandlerType {
-    /// 获取文章分类
-    case articleCategory
+public enum HandlerType: String {
+
     
-    /// 获取不同分类新闻内容
-    case articleContent
+    /// 根Url
+    case baseUrl =  "Api/"
     
-    /// 获取用户tabs
-    case userTabs
+    /// 文章
+    enum Article:String {
+        
+        /// 分类
+        case category
+        
+        /// 分类对应内容
+        case content
+        
+    }
+    
+    /// 用户
+    enum User:String {
+        
+        /// 我的界面section
+        case tab
+    }
+
+
 }
