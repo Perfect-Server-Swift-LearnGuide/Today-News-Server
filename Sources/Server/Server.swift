@@ -43,10 +43,10 @@ public struct Server {
         server.addRoutes(routes)
         
         /// 监听端口
-        server.serverPort = UInt16(app["hostport"] as! Int)
+        server.serverPort = UInt16(app.hostport)
         
         /// 设置文档根目录
-        server.documentRoot = app["hostroot"] as! String
+        server.documentRoot = app.hostroot
 
     }
 

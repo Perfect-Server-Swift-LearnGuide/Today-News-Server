@@ -60,7 +60,7 @@ public class ArticleContentModel {
                 for img in imgArr {
                     var thumbnail = img
                     thumbnail.removeSubrange(thumbnail.startIndex..<thumbnail.index(after: thumbnail.startIndex))
-                    thumbnails.append(app["imghost"] as! String + thumbnail)
+                    thumbnails.append(app.imghost + thumbnail)
                 }
             }
 

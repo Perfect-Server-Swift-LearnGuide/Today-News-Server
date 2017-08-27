@@ -25,6 +25,7 @@ import Common
 import MongoDB
 
 
+
 /// 创建服务器
 let server = Server().server
 
@@ -34,6 +35,7 @@ configureServer(server)
 var routes = Routes()
 
 server.addRoutes(routes)
+
 
 do {
 	/// 启动服务器
