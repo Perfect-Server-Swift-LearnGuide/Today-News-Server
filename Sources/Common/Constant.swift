@@ -10,10 +10,36 @@
 
 public enum Server {
     
-    /// Api
-    public enum Api: String {
+
+    /// 路由
+    public enum Route:String {
         
-        case api
+        /// 根Url
+        case baseUrl =  "Api/"
+        
+        /// 文章
+        public enum Article:String {
+            
+            /// 分类
+            case category
+            
+            /// 分类对应内容
+            case content
+            
+        }
+        
+        /// 用户
+        public enum User:String {
+            
+            /// 注册
+            case register
+            
+            /// 登录
+            case login
+            
+            /// 我的界面section
+            case tab
+        }
     }
     
     /// 目录

@@ -14,8 +14,8 @@ public struct UserTabHandler {
     /// 获取文章分类
     public static func tab(req: HTTPRequest, res: HTTPResponse) -> String {
         
-        let db = UserTabModel()
-        return db.userTabs()
+        let tab = UserTabModel()
+        return tab.userTabs()
 
     }
 

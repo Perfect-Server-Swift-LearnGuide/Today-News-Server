@@ -18,7 +18,7 @@ public struct Route {
     public init() {
 
         /// 设置主路由
-        var baseRoutes = Routes(baseUri: HandlerType.baseUrl.rawValue)
+        var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
         
         /// 文章
         let article = Article.article()

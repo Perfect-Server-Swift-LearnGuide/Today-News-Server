@@ -10,6 +10,7 @@ import PerfectLib
 import PerfectHTTP
 import DataBase
 import MongoDB
+import Common
 
 
 public struct User {
@@ -24,10 +25,13 @@ public struct User {
             switch action {
                 
             /// 用户我的section
-            case HandlerType.User.tab.rawValue:
+            case Server.Route.User.tab.rawValue:
                 
                 res.appendBody(string: UserTabHandler.tab(req: req, res: res))
 
+            case Server.Route.User.register.rawValue:
+                
+                 res.appendBody(string: UserRegisterHandler.register(req: req, res: res))
                 
             default:
                 print("default")

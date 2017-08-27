@@ -5,13 +5,13 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "DCD994A20FFF69E73D7DE28EB512BBF004934554" : 9223372036854775807,
-    "E71C9F673135F52EEF9E6F1B8D0895D4850F2E7F" : 9223372036854775807,
+    "9197B75B1BC29921D6E3B1CCDC2B258350009F3A" : 9223372036854775807,
     "701154F109CCF61EFD323BBF5A9F928BC65AB589" : 9223372036854775807
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8C04ADAB-9FCE-4191-91C9-1A2E97A64B83",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EA5C575D-398C-4379-BEB1-35111ED3C8B1",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "DCD994A20FFF69E73D7DE28EB512BBF004934554" : "Today-News-Server\/Packages\/COpenSSL-2.0.4\/",
-    "E71C9F673135F52EEF9E6F1B8D0895D4850F2E7F" : "Today-News-Server\/Packages\/PerfectCrypto-1.0.8\/",
+    "9197B75B1BC29921D6E3B1CCDC2B258350009F3A" : "Today-News-Server\/Packages\/PerfectHTTP-2.2.3\/",
     "701154F109CCF61EFD323BBF5A9F928BC65AB589" : "Today-News-Server\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Today-News-Server",
@@ -24,14 +24,14 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "701154F109CCF61EFD323BBF5A9F928BC65AB589"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PerfectlySoft\/Perfect-HTTP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9197B75B1BC29921D6E3B1CCDC2B258350009F3A"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PerfectlySoft\/Perfect-COpenSSL.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DCD994A20FFF69E73D7DE28EB512BBF004934554"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PerfectlySoft\/Perfect-Crypto.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E71C9F673135F52EEF9E6F1B8D0895D4850F2E7F"
     }
   ]
 }

@@ -10,6 +10,7 @@ import PerfectLib
 import PerfectHTTP
 import DataBase
 import MongoDB
+import Common
 
 
 public struct Article {
@@ -25,11 +26,11 @@ public struct Article {
             switch action {
                 
             /// 分类
-            case HandlerType.Article.category.rawValue:
+            case Server.Route.Article.category.rawValue:
                 res.appendBody(string: ArticleCategoryHandler.category(req: req, res: res))
 
             /// 对应分类文章
-            case HandlerType.Article.content.rawValue:
+            case Server.Route.Article.content.rawValue:
                 res.appendBody(string: ArticleContentHandler.content(req: req, res: res))
             
             default:
