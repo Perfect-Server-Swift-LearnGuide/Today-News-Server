@@ -32,6 +32,10 @@ public struct Article {
             /// 对应分类文章
             case Server.Route.Article.content.rawValue:
                 res.appendBody(string: ArticleContentHandler.content(req: req, res: res))
+                
+            /// 文章详情
+            case Server.Route.Article.detail.rawValue:
+                res.appendBody(string: ArticleDetailHandler.detail(req: req, res: res))
             
             default:
                 print("default")

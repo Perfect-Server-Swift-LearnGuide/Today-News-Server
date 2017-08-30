@@ -24,8 +24,8 @@ public struct ArticleContentHandler {
             requestPage = Int(page)!
         }
         
-        let db = ArticleContentModel()
-        return db.content(type: requestType, page: requestPage)
+        let content = ArticleContentModel()
+        return content.content(type: requestType, page: requestPage)
   
     }
     

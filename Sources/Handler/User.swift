@@ -33,6 +33,10 @@ public struct User {
                 
                  res.appendBody(string: UserRegisterHandler.register(req: req, res: res))
                 
+            case Server.Route.User.login.rawValue:
+                
+                res.appendBody(string: UserLoginHandler.login(req: req, res: res))
+                
             default:
                 print("default")
             }

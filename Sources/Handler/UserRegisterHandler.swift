@@ -8,6 +8,7 @@
 
 import PerfectHTTP
 import Model
+import Foundation
 
 public struct UserRegisterHandler {
     
@@ -16,10 +17,10 @@ public struct UserRegisterHandler {
         
         var params = [String: String]()
         params["phone"] = req.param(name: "phone")
-        let pwd = req.param(name: "pwd")
+        let pwd = req.param(name: "phone")
         let index = pwd?.index(pwd!.endIndex, offsetBy: -6)
         params["pwd"] = pwd?.substring(from: index!)
-        
+
         let register = UserRegisterModel()
         return register.register(data: params)
         

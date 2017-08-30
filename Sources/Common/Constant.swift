@@ -26,6 +26,9 @@ public enum Server {
             /// 分类对应内容
             case content
             
+            /// 详情
+            case detail
+            
         }
         
         /// 用户

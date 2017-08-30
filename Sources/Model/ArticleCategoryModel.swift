@@ -14,11 +14,18 @@ import DataBase
 
 public class ArticleCategoryModel {
     
-    public init() {}
+    /// dartabase
+    var db: DB
+    
+    /// colllection
+    var collection: MongoCollection?
+    
+    public init() {
+        db = DB(db: "today_news").collection(name: "category")
+        collection =  db.collection
+    }
     
     public func categories() -> String {
-        let db = DB(db: "today_news").collection(name: "category")
-        let collection: MongoCollection? = db.collection
         
         let queryBson = BSON()
         let cursor = collection?.find(query: queryBson)
@@ -47,8 +54,6 @@ public class ArticleCategoryModel {
     }
     
     public func categoryTitle(type: Int) -> String {
-        let db = DB(db: "today_news").collection(name: "category")
-        let collection: MongoCollection? = db.collection
         
         /// 获取该集合下所有的信息
         let queryBson = BSON()

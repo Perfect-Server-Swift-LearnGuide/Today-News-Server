@@ -1,8 +1,8 @@
 //
-//  UserRegisterModel.swift
+//  UserLoginModel.swift
 //  Today-News-Server
 //
-//  Created by Mac on 17/8/27.
+//  Created by Mac on 17/8/28.
 //
 //
 
@@ -12,7 +12,7 @@ import MongoDB
 import DataBase
 
 
-public class UserRegisterModel {
+public class UserLoginModel {
     
     /// dartabase
     var db: DB
@@ -25,31 +25,19 @@ public class UserRegisterModel {
         collection =  db.collection
     }
     
-    public func register(data: [String: String]) -> String {
-
+    public func login(data: [String: String]) -> String{
+        
         let queryBson = BSON(map: data)
         
         var response = [String:Any]()
-        if total(queryBson) > 0 {
-            response["result"] = ["status" : 0, "msg" : "该手机号已注册"]
+        if total(queryBson) <= 0 {
+            response["result"] = ["status" : 1, "msg" : "用户名或密码不正确"]
             return try! response.jsonEncodedString()
-        }
-        
-        queryBson.append(key: "createtime" , string: try! formatDate(getNow(), format: "%Y/%m/%d %I:%M:%S"))
-        queryBson.append(key: "isDelete", bool: false)
-        
-        print(queryBson)
-        
-        let result: MongoResult = collection!.insert(document: queryBson)
-        
-        switch result {
-        case .success:
-            response["result"] = ["status" : 0, "msg" : "注册成功"]
+        } else {
+            response["result"] = ["status" : 0, "msg" : "登录成功"]
             response["data"] = userInfo(queryBson)
-        default:
-            response["result"] = ["status" : 1, "msg" : "注册失败"]
         }
-        
+
         db.close()
         
         return try! response.jsonEncodedString()
@@ -73,7 +61,7 @@ public class UserRegisterModel {
             }
             ary.append(data)
         }
-
+        
         guard let data = ary.first as? [String: Any] else {
             return [String: Any]()
         }
@@ -92,4 +80,3 @@ public class UserRegisterModel {
         }
     }
 }
-

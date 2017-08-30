@@ -14,8 +14,8 @@ public struct ArticleCategoryHandler {
     /// 获取文章分类
     public static func category(req: HTTPRequest, res: HTTPResponse) -> String {
 
-        let db = ArticleCategoryModel()
-        return db.categories()
+        let category = ArticleCategoryModel()
+        return category.categories()
 
     }
     
