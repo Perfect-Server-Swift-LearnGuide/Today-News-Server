@@ -32,6 +32,7 @@ public class UserLoginModel {
         var response = [String:Any]()
         if total(queryBson) <= 0 {
             response["result"] = ["status" : 1, "msg" : "用户名或密码不正确"]
+            response["data"] = [String: Any]()
             return try! response.jsonEncodedString()
         } else {
             response["result"] = ["status" : 0, "msg" : "登录成功"]
@@ -51,15 +52,18 @@ public class UserLoginModel {
             var user = [String: Any]()
             let data:[String: Any] = c.dict as [String : Any]
             let temp = data["_id"] as? [String : String]
-            
             user["phone"] = data["phone"]
             user["createtime"] = data["createtime"]
+            user["dynamic"] = data["dynamic"]
+            user["fans"] = data["fans"]
+            user["visitor"] = data["visitor"]
             if let dict = temp {
+
                 user["user_id"] = dict["$oid"]! as String
             } else {
                 user["user_id"] = ""
             }
-            ary.append(data)
+            ary.append(user)
         }
         
         guard let data = ary.first as? [String: Any] else {

@@ -37,8 +37,12 @@ public class UserRegisterModel {
         
         queryBson.append(key: "createtime" , string: try! formatDate(getNow(), format: "%Y/%m/%d %I:%M:%S"))
         queryBson.append(key: "isDelete", bool: false)
-        
-        print(queryBson)
+        let defaultData = [["dynamic" : 0], ["fans" : 0], ["visitor" : 0]]
+        for dict in defaultData  {
+            for (key, value) in dict {
+                queryBson.append(key: key, int: value)
+            }
+        }
         
         let result: MongoResult = collection!.insert(document: queryBson)
         
@@ -48,6 +52,7 @@ public class UserRegisterModel {
             response["data"] = userInfo(queryBson)
         default:
             response["result"] = ["status" : 1, "msg" : "注册失败"]
+            response["data"] = [String: Any]()
         }
         
         db.close()
