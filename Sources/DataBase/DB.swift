@@ -27,10 +27,19 @@ public class DB {
         /// 通过默认的端口连接MongoDB
         
         self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport)
- print("mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport)
+        print("mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport)
         /// DataBase
         self.db = self.client.getDatabase(name: db)
-        
+      
+        let status = self.client.serverStatus()
+        switch status {
+        case .error(let domain, let code, let message):
+            print( "Error: \(domain) \(code) \(message)")
+        case .replyDoc(_):
+            print(true)
+        default:
+            print("Strange reply type \(status)")
+        }
         print(self.db.collectionNames())
         
     }
