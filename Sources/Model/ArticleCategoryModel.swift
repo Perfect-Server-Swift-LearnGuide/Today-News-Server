@@ -33,15 +33,13 @@ public class ArticleCategoryModel {
         while let c = cursor?.next() {
        
             let data = c.dict
-                 print("c  \n  \(data)")
             var thisPost = [String: Any]()
             
             thisPost["type"] = data["type"] as? Int
             thisPost["title"] = data["title"] as? String
             ary.append(thisPost)
         }
-        print("cursor    \n  \(cursor)")
-        print("data   \n \(ary)")
+
         var response = [String:Any]()
         if ary.count > 0 {
             response["result"] = "success"

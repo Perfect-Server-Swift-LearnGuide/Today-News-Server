@@ -28,21 +28,11 @@ public class DB {
         
         self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport + "/" + db)
 
+        fail(self.collection)
+        
         /// DataBase
         self.db = self.client.getDatabase(name: db)
       
-        let status = self.client.serverStatus()
-        switch status {
-        case .error(let domain, let code, let message):
-            print( "Error: \(domain) \(code) \(message)")
-        case .replyDoc(_):
-            print(true)
-        default:
-            print("Strange reply type \(status)")
-        }
-        
-        print(self.db.collectionNames())
-        
     }
     
     /// init collection
@@ -61,4 +51,16 @@ public class DB {
         }
     }
     
+    /// database connect fail
+    private func fail(client: MongoClient) {
+        let status = client.serverStatus()
+        switch status {
+        case .error(let domain, let code, let message):
+            print( "Error: \(domain) \(code) \(message)")
+        case .replyDoc(_):
+            print(true)
+        default:
+            print("Strange reply type \(status)")
+        }
+    }
 }

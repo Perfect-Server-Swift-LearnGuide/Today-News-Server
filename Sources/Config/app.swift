@@ -1,7 +1,5 @@
 public struct app {
 
-    
-    
     /// 服务器地址
     public static let hostname                    =                   "127.0.0.1"
     
@@ -16,8 +14,5 @@ public struct app {
     
     /// 图片路径
     public static let imghost                         =                 "http://127.0.0.1:8282"
-    
-    
-    
     
 }
