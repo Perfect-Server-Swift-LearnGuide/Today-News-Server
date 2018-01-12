@@ -26,7 +26,7 @@ public class DB {
         
         /// 通过默认的端口连接MongoDB
         
-        self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport + "/" + "today_news")
+        self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport)
  print("mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport)
         /// DataBase
         self.db = self.client.getDatabase(name: db)
