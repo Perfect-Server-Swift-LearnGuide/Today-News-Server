@@ -26,12 +26,15 @@ public class DB {
         
         /// 通过默认的端口连接MongoDB
         
-        self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport + "/" + db)
+        self.client = try! MongoClient(uri: "mongodb://" +
+                                                                database.username  + ":" +
+                                                                database.password + "@" +
+                                                                database.hostname + ":" +
+                                                                database.dbport + "/" +
+                                                                db)
         
         /// DataBase
         self.db = self.client.getDatabase(name: db)
-        
-        fail(client: self.client)
       
     }
     
@@ -52,7 +55,7 @@ public class DB {
     }
     
     /// database connect fail
-    fileprivate func fail(client: MongoClient) {
+    fileprivate func outputFail(client: MongoClient) {
         let status = client.serverStatus()
         switch status {
         case .error(let domain, let code, let message):
