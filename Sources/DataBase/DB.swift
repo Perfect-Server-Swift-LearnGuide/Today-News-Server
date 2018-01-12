@@ -27,11 +27,11 @@ public class DB {
         /// 通过默认的端口连接MongoDB
         
         self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport + "/" + db)
-
-        self.fail(client: self.client)
         
         /// DataBase
         self.db = self.client.getDatabase(name: db)
+        
+        fail(client: self.client)
       
     }
     
