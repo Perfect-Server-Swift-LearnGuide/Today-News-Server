@@ -31,8 +31,9 @@ public class ArticleCategoryModel {
         
         var ary = [Any]()
         while let c = cursor?.next() {
-            print("c  \n  \(c)")
+       
             let data = c.dict
+                 print("c  \n  \(data)")
             var thisPost = [String: Any]()
             
             thisPost["type"] = data["type"] as? Int

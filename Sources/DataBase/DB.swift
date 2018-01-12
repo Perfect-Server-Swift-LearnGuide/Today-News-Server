@@ -25,10 +25,13 @@ public class DB {
     public init(db: String) {
         
         /// 通过默认的端口连接MongoDB
-        self.client = try! MongoClient(uri: "mongodb://lovemo@perfect_swift@" + database.hostname + ":" + database.dbport)
-      print("mongodb://admin@lovemo_swift@" + database.hostname + ":" + database.dbport)
+        
+        self.client = try MongoClient(uri: "mongodb://lovemo@perfect_swift@" + database.hostname + ":" + database.dbport)
+ 
         /// DataBase
         self.db = self.client.getDatabase(name: db)
+        
+        print(self.db!.collectionNames())
         
     }
     
