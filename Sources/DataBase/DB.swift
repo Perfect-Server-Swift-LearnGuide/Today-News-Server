@@ -29,7 +29,7 @@ public class DB {
       print("mongodb://lovemo@perfect_swift@" + database.hostname + ":" + database.dbport)
         /// DataBase
         self.db = self.client.getDatabase(name: db)
-        print(self.db)
+        
     }
     
     /// init collection

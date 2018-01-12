@@ -15,7 +15,7 @@ public struct database {
     public static let database                       =                    "today_news"
     
     /// 数据库表前缀
-    public static let dbprefix                          =                   "tn_"
+    public static let dbprefix                          =                   ""
     
     /// 数据库端口号
     public static let dbport                             =                   "27017"
