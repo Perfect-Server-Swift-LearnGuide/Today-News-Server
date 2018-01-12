@@ -28,7 +28,7 @@ public class DB {
         
         self.client = try! MongoClient(uri: "mongodb://lovemo:perfect_swift@" + database.hostname + ":" + database.dbport + "/" + db)
 
-        fail(client: self.client)
+        self.fail(client: self.client)
         
         /// DataBase
         self.db = self.client.getDatabase(name: db)
