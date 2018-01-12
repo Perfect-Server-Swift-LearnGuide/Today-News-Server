@@ -26,7 +26,7 @@ public class DB {
         
         /// 通过默认的端口连接MongoDB
         self.client = try! MongoClient(uri: "mongodb://lovemo@perfect_swift@" + database.hostname + ":" + database.dbport)
-      print("mongodb://lovemo@perfect_swift@" + database.hostname + ":" + database.dbport)
+      print("mongodb://admin@lovemo_swift@" + database.hostname + ":" + database.dbport)
         /// DataBase
         self.db = self.client.getDatabase(name: db)
         
@@ -35,6 +35,7 @@ public class DB {
     /// init collection
     public func collection(name: String) -> Self {
         self.collection = self.db.getCollection(name: database.dbprefix + name)
+        print(self.collection.getLastError())
         return self
     }
     
