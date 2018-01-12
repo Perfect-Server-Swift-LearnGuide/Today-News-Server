@@ -46,7 +46,7 @@ public class ArticleCategoryModel {
         } else {
             response["result"] = "error"
         }
-       print(response) 
+      
         db.close()
         
         return try! response.jsonEncodedString()
