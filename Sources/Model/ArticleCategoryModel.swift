@@ -31,7 +31,7 @@ public class ArticleCategoryModel {
         
         var ary = [Any]()
         while let c = cursor?.next() {
-            
+            print("c  \n  \(c)")
             let data = c.dict
             var thisPost = [String: Any]()
             
@@ -39,6 +39,8 @@ public class ArticleCategoryModel {
             thisPost["title"] = data["title"] as? String
             ary.append(thisPost)
         }
+        print("cursor    \n  \(cursor)")
+        print("data   \n \(ary)")
         var response = [String:Any]()
         if ary.count > 0 {
             response["result"] = "success"
@@ -47,6 +49,7 @@ public class ArticleCategoryModel {
             response["result"] = "error"
         }
       
+
         db.close()
         
         return try! response.jsonEncodedString()
