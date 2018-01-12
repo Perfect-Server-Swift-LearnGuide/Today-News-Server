@@ -52,7 +52,7 @@ public class DB {
     }
     
     /// database connect fail
-    private func fail(client: MongoClient) {
+    fileprivate func fail(client: MongoClient) {
         let status = client.serverStatus()
         switch status {
         case .error(let domain, let code, let message):
