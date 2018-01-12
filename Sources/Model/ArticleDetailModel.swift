@@ -8,10 +8,9 @@
 
 import PerfectLib
 import Common
-import MongoDB
 import DataBase
 import Config
-
+import PerfectMongoDB
 
 public class ArticleDetailModel {
     

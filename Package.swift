@@ -7,7 +7,7 @@ let package = Package(
         Target(name: "Application", dependencies: ["Server"]),
         Target(name: "Common", dependencies: []),
         Target(name: "Config", dependencies: []),
-        Target(name: "Model", dependencies: ["Config"]),
+        Target(name: "Model", dependencies: ["Config","Common","DataBase"]),
         Target(name: "DataBase", dependencies: ["Config"]),
         Target(name: "Server", dependencies: ["Route","Config"]),
         Target(name: "Handler", dependencies: ["Common", "DataBase","Config","Model"]),
@@ -16,13 +16,10 @@ let package = Package(
 	dependencies: [
         .Package(
             url: "https://github.com/PerfectlySoft/Perfect-HTTPServer.git",
-            majorVersion: 2),
+            majorVersion:3),
         .Package(
             url:"https://github.com/PerfectlySoft/Perfect-MongoDB.git",
-            majorVersion: 2, minor: 0),
-        .Package(
-            url:"https://github.com/PerfectlySoft/PerfectLib.git",
-            majorVersion: 2, minor: 0)
+            majorVersion:3)
 
     ]
 )

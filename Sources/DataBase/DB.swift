@@ -7,7 +7,7 @@
 //
 
 import PerfectLib
-import MongoDB
+import PerfectMongoDB
 import PerfectHTTP
 import Config
 
@@ -25,8 +25,8 @@ public class DB {
     public init(db: String) {
         
         /// 通过默认的端口连接MongoDB
-        self.client = try! MongoClient(uri: "mongodb://" + database.hostname + ":" + database.dbport)
-        
+        self.client = try! MongoClient(uri: "mongodb://lovemo@perfect_swift@" + database.hostname + ":" + database.dbport)
+       print(self.client) 
         /// DataBase
         self.db = self.client.getDatabase(name: db)
     }

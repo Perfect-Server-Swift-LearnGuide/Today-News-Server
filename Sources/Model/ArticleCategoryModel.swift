@@ -8,9 +8,8 @@
 
 import PerfectLib
 import Common
-import MongoDB
 import DataBase
-
+import PerfectMongoDB
 
 public class ArticleCategoryModel {
     
@@ -47,7 +46,7 @@ public class ArticleCategoryModel {
         } else {
             response["result"] = "error"
         }
-        
+       print(response) 
         db.close()
         
         return try! response.jsonEncodedString()

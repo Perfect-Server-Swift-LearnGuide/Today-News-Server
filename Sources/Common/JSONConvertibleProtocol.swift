@@ -24,7 +24,7 @@ public extension JSONConvertibleProtocol {
         for child in mirror.children {
             let value = child.value
             if let key = child.label {
-                dict.updateValue(value as AnyObject, forKey: key)
+                dict.updateValue(value as! AnyObject, forKey: key)
             }
         }
         return dict
