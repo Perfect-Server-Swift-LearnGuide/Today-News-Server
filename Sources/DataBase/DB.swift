@@ -35,7 +35,7 @@ public class DB {
     /// init collection
     public func collection(name: String) -> Self {
         self.collection = self.db.getCollection(name: database.dbprefix + name)
-        print(self.collection.getLastError())
+        print(self.collection!.getLastError())
         return self
     }
     
