@@ -13,7 +13,7 @@ import PerfectMongoDB
 public class ArticleCategoryModel: SK_Model {
     
 //    /// dartabase
-   var db: DB
+//   var db: DB
     
     /// colllection
     var collection: MongoCollection?
