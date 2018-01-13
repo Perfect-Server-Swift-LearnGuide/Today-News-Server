@@ -23,7 +23,7 @@ struct ResponseFilter: HTTPResponseFilter {
     }
 }
 
-public struct Server {
+open struct Server {
     /// 服务器
     public var server = HTTPServer()
     

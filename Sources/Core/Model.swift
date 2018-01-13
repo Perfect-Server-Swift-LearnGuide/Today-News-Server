@@ -11,9 +11,11 @@ import DataBase
 
 open class SK_Model {
     
-    /// dartabase
-    open static let db = DB()
+    /// database
+    public var db: DB {
+	return DB()
+    }
     
-    
+    public init() {} 
     
 }
