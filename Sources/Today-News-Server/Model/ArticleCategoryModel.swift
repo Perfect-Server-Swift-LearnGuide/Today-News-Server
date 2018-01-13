@@ -25,7 +25,11 @@ public class ArticleCategoryModel: SK_Model {
   //      self.collection = db.database(name: "today_news").collection(name: "category").collection
 //	print(self.collection)
 let db = DB(db:"today_news").collection(name:"category")
-collection = db.collection	
+collection = db.collection
+        print("----------")
+        print(db.collectionNames())
+        print(collection)
+        print(collection.getLastError())
     }
     
     public func categories() -> String {
