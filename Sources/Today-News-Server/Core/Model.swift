@@ -11,10 +11,10 @@ import Foundation
 open class SK_Model {
     
     /// database
-    public var db: DB
-    
-    public init() {
-        self.db = DB()
+    public var db: DB {
+        return DB()
     }
+    
+    public init() {} 
     
 }
