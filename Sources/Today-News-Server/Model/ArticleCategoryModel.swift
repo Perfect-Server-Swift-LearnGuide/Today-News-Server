@@ -29,7 +29,7 @@ collection = db.collection
         print("----------")
         print(db.collectionNames())
         print(collection)
-        print(collection.getLastError())
+        print(collection?.getLastError())
     }
     
     public func categories() -> String {
