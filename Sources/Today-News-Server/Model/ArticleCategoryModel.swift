@@ -28,8 +28,8 @@ public class ArticleCategoryModel: SK_Model {
 
             let data = c.dict
             results.append([
-                "type" : data["type"] as? Int,
-                "title"   : data["title"] as? String
+                "type" : data["type"],
+                "title"   : data["title"]
             ])
         }
         var response = [String:Any]()
