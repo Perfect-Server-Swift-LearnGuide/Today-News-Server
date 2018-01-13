@@ -11,7 +11,7 @@ import Foundation
 open class SK_Model {
     
     /// database
-    public var db
+    public var db: DB
     
     public init() {
         self.db = DB()
