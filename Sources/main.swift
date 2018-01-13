@@ -20,6 +20,7 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
+import Foundation
 //import Server
 //import Common
 
