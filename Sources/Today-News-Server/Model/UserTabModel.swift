@@ -7,8 +7,8 @@
 //
 
 import PerfectLib
-import Common
-import DataBase
+//import Common
+//import DataBase
 import PerfectMongoDB
 
 public class UserTabModel {

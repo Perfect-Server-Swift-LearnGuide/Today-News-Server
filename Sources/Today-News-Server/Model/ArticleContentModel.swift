@@ -7,9 +7,9 @@
 //
 
 import PerfectLib
-import Common
-import DataBase
-import Config
+//import Common
+//import DataBase
+//import Config
 import PerfectMongoDB
 
 public class ArticleContentModel {

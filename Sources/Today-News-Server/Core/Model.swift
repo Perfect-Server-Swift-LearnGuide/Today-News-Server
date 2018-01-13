@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DataBase
+//import DataBase
 
 open class SK_Model {
     

@@ -1,4 +1,4 @@
 module LinuxBridge {
-    umbrella header "/var/www/Today-News-Server/.build/checkouts/Perfect-LinuxBridge.git-2375476168858851522/LinuxBridge/include/LinuxBridge.h"
+    umbrella header "/var/www/Today-News-Server/.build/checkouts/Perfect-LinuxBridge.git--4690467357022932725/LinuxBridge/include/LinuxBridge.h"
     export *
 }

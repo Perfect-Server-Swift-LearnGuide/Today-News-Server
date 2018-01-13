@@ -20,17 +20,14 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
-import Foundation
+//import Foundation
 //import Server
 //import Common
 
 
 
 /// 创建服务器
-let server = Server().server
-
-/// 配置服务器
-configureServer(server)
+let server = App().server
 
 var routes = Routes()
 

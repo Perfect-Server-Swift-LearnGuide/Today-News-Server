@@ -7,10 +7,10 @@
 //
 
 import PerfectLib
-import Common
-import DataBase
+//import Common
+//import DataBase
 import PerfectMongoDB
-import Core
+//import Core
 
 public class ArticleCategoryModel: SK_Model {
     
