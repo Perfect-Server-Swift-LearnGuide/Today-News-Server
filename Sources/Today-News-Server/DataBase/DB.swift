@@ -36,22 +36,20 @@ open class DB {
     
     // init database 
     open func database(name: String) -> Self {
-        /// 通过默认的端口连接MongoDB
-        self.client = try! MongoClient(uri: Database.today_news.connection + name)
-	guard let client = self.client else {
-	    return self		
-	}
-        /// DataBase
-        outputFail(client: client)
-        self.database = client.getDatabase(name: name)
+        guard let c = self.client else {
+            /// 通过默认的端口连接MongoDB
+            self.client = try! MongoClient(uri: Database.today_news.connection + name)
+            /// DataBase
+            self.database = self.client?.getDatabase(name: name)
+            return self
+        }
         return self
     }
     
     /// init collection
     open func collection(name: String) -> Self {
         self.collection = self.database?.getCollection(name: Database.today_news.dbprefix + name)
-	print(self.database?.collectionNames())
-	print(self.collection)
+        print(self.database?.collectionNames())
         return self
     }
     

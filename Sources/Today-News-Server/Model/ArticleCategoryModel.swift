@@ -35,7 +35,7 @@ collection = db.collection
         
         var ary = [Any]()
         while let c = cursor?.next() {
-       
+            print(c.dict)
             let data = c.dict
             var thisPost = [String: Any]()
             
