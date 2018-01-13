@@ -28,15 +28,16 @@ let db = DB(db:"today_news").collection(name:"category")
 collection = db.collection
         print("----------")
         print(db.database?.collectionNames())
-        print(collection)
-        print(collection?.getLastError())
+
     }
     
     public func categories() -> String {
         
         let queryBson = BSON()
         let cursor = collection?.find(query: queryBson)
-        
+        print(collection)
+        print(collection?.getLastError())
+        print(cursor)
         var ary = [Any]()
         while let c = cursor?.next() {
             print(c.dict)
