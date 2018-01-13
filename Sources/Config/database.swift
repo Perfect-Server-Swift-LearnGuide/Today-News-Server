@@ -1,5 +1,5 @@
 /// 数据库
-public struct database {
+public struct Database {
     
      public struct today_news {
         /// 数据库服务器地址
