@@ -22,6 +22,8 @@ open class DB {
     /// MongoCollection
     open var collection: MongoCollection?
     
+    public init() {}
+    
     public init(db: String) {
         
         /// 通过默认的端口连接MongoDB
@@ -32,7 +34,6 @@ open class DB {
       
     }
     
-    public init() {}
     
     // init database 
     open func database(name: String) -> Self {
