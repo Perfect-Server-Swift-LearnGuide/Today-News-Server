@@ -20,10 +20,11 @@ public class ArticleCategoryModel: SK_Model {
     /// colllection
     var collection: MongoCollection?
     
-    public init() {
+    override public init() {
 //        db = DB(db: "today_news").collection(name: "category")
 //        collection =  db.collection
-        collection = db.database("today_news").collection("category")
+	super.init()
+        collection = db.database(name: "today_news").collection(name: "category").collection
     }
     
     public func categories() -> String {
