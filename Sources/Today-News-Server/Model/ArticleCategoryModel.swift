@@ -13,7 +13,7 @@ import PerfectMongoDB
 public class ArticleCategoryModel: SK_Model {
     
 //    /// dartabase
-//    var db: DB
+   var db: DB
     
     /// colllection
     var collection: MongoCollection?
@@ -24,7 +24,7 @@ public class ArticleCategoryModel: SK_Model {
 	super.init()
   //      self.collection = db.database(name: "today_news").collection(name: "category").collection
 //	print(self.collection)
-let db = DB(db:"today_news").collection(name:"category")
+db = DB(db:"today_news").collection(name:"category")
 collection = db.collection
         print("----------")
         print(db.database?.collectionNames())
@@ -55,7 +55,7 @@ collection = db.collection
         }
       
 
-      //  db.close()
+       db.close()
         
         return try! response.jsonEncodedString()
     }
