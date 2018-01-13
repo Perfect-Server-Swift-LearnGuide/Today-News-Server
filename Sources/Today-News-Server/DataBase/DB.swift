@@ -30,7 +30,7 @@ open class DB {
         
         /// DataBase
         self.database = self.client?.getDatabase(name: db)
-      
+        close()
     }
     
     
@@ -41,6 +41,7 @@ open class DB {
             self.client = try! MongoClient(uri: Database.today_news.connection + name)
             /// DataBase
             self.database = self.client?.getDatabase(name: name)
+            close()
             return self
         }
         return self

@@ -12,19 +12,10 @@ import PerfectMongoDB
 
 public class ArticleCategoryModel: SK_Model {
     
-
-    
     override public init() {
-//        db = DB(db: "today_news").collection(name: "category")
-//        collection =  db.collection
-	super.init()
+        super.init()
+        
         db.database(name: "today_news").collection(name: "category")
-//	print(self.collection)
-//db = DB(db:"today_news").collection(name:"category")
-//collection = db.collection
-//        print("----------")
-//        print(db.database?.collectionNames())
-
     }
     
     public func categories() -> String {
@@ -34,7 +25,7 @@ public class ArticleCategoryModel: SK_Model {
 
         var ary = [Any]()
         while let c = cursor?.next() {
-            print(c.dict)
+
             let data = c.dict
             var thisPost = [String: Any]()
             
@@ -50,8 +41,6 @@ public class ArticleCategoryModel: SK_Model {
             response["result"] = "error"
         }
       
-
-       db.close()
         
         return try! response.jsonEncodedString()
     }
