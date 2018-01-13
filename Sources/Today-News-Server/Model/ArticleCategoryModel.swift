@@ -10,7 +10,7 @@ import PerfectLib
 
 import PerfectMongoDB
 
-public class ArticleCategoryModel: SK_Model {
+public class ArticleCategoryModel {
     
 //    /// dartabase
 //    var db: DB
@@ -57,7 +57,7 @@ collection = db.collection
         }
       
 
-      //  db.close()
+   //   db.close()
         
         return try! response.jsonEncodedString()
     }
