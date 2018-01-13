@@ -7,7 +7,6 @@
 //
 
 import PerfectHTTP
-//import Model
 
 public struct UserTabHandler {
     

@@ -7,8 +7,6 @@
 //
 
 import PerfectHTTP
-//import Common
-//import Handler
 
 public struct Route {
     

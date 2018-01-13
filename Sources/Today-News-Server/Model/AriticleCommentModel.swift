@@ -7,9 +7,7 @@
 //
 
 import PerfectLib
-//import Common
 import PerfectMongoDB
-//import DataBase
 
 
 public class ArticleCommentModel {

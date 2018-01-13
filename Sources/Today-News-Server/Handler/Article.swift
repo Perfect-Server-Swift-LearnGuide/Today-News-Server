@@ -8,9 +8,7 @@
 
 import PerfectLib
 import PerfectHTTP
-//import DataBase
 import PerfectMongoDB
-//import Common
 
 
 public struct Article {

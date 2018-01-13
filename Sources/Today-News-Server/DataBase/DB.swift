@@ -9,7 +9,6 @@
 import PerfectLib
 import PerfectMongoDB
 import PerfectHTTP
-//import Config
 
 open class DB {
     
@@ -41,6 +40,7 @@ open class DB {
         self.client = try! MongoClient(uri: Database.today_news.connection + name)
         /// DataBase
         self.database = self.client?.getDatabase(name: name)
+        print(Database.today_news.connection + name)
         return self
     }
     

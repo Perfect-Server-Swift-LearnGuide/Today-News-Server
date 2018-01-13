@@ -7,8 +7,7 @@
 //
 
 import PerfectHTTP
-//import Model
-//import Foundation
+
 
 public struct UserRegisterHandler {
     

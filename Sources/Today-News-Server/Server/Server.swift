@@ -9,8 +9,7 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
-//import Route
-//import Config
+
 
 struct ResponseFilter: HTTPResponseFilter {
     func filterHeaders(response: HTTPResponse, callback: (HTTPResponseFilterResult) -> ()) {

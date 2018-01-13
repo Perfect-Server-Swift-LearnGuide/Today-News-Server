@@ -7,8 +7,6 @@
 //
 
 import PerfectHTTP
-//import Model
-//import Foundation
 
 public struct UserLoginHandler {
     
