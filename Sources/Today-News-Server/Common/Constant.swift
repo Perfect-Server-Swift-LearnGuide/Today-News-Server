@@ -54,7 +54,7 @@ public enum Server {
     
     /// 状态码
     public enum ErrorStatus: Int {
-       
+       case ok
     }
     
 }
