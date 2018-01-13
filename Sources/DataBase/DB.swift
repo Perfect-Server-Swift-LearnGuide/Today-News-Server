@@ -30,7 +30,7 @@ open class DB {
         self.client = try! MongoClient(uri: Database.today_news.connection + db)
         
         /// DataBase
-        self.database = self.client.getDatabase(name: db)
+        self.database = self.client?.getDatabase(name: db)
       
     }
     
@@ -40,22 +40,22 @@ open class DB {
         /// 通过默认的端口连接MongoDB
         self.client = try! MongoClient(uri: Database.today_news.connection + name)
         /// DataBase
-        self.database = self.client.getDatabase(name: name)
+        self.database = self.client?.getDatabase(name: name)
         return self
     }
     
     /// init collection
     open func collection(name: String) -> Self {
-        self.collection = self.db.getCollection(name: Database.today_news.dbprefix + name)
+        self.collection = self.database?.getCollection(name: Database.today_news.dbprefix + name)
         return self
     }
     
     /// close db connect
     open func close() {
         defer {
-            self.collection!.close()
-            self.database.close()
-            self.client.close()
+            self.collection?.close()
+            self.database?.close()
+            self.client?.close()
         }
     }
     

@@ -12,7 +12,7 @@ import DataBase
 open class SK_Model {
     
     /// dartabase
-    static let db = DB()
+    open static let db = DB()
     
     
     
