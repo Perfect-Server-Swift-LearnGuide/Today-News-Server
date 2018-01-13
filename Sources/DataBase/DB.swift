@@ -14,10 +14,10 @@ import Config
 open class DB {
     
     /// MongoClient
-    open var client: MongoClient
+    open var client: MongoClient?
     
     /// MongoDatabase
-    open var database: MongoDatabase
+    open var database: MongoDatabase?
     
     /// MongoCollection
     open var collection: MongoCollection?
