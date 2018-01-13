@@ -11,45 +11,56 @@ import PerfectMongoDB
 import PerfectHTTP
 import Config
 
-public class DB {
+open class DB {
     
     /// MongoClient
-    public var client: MongoClient
+    open var client: MongoClient
     
     /// MongoDatabase
-    public var db: MongoDatabase
+    open var database: MongoDatabase
     
     /// MongoCollection
-    public var collection: MongoCollection?
+    open var collection: MongoCollection?
     
-    public init(db: String) {
+    open init(db: String) {
         
         /// 通过默认的端口连接MongoDB
-        
         self.client = try! MongoClient(uri: database.today_news.connection + db)
         
         /// DataBase
-        self.db = self.client.getDatabase(name: db)
+        self.database = self.client.getDatabase(name: db)
       
+    }
+    open init() {
+        
+        /// 通过默认的端口连接MongoDB
+        self.client = try! MongoClient(uri: database.today_news.connection + db)
+    }
+    
+    // init database 
+    open func databse(name: String) -> Self {
+        /// DataBase
+        self.database = self.client.getDatabase(name: name)
+        return self
     }
     
     /// init collection
-    public func collection(name: String) -> Self {
+    open func collection(name: String) -> Self {
         self.collection = self.db.getCollection(name: database.today_news.dbprefix + name)
         return self
     }
     
     /// close db connect
-    public func close() {
+    open func close() {
         defer {
             self.collection!.close()
-            self.db.close()
+            self.database.close()
             self.client.close()
         }
     }
     
     /// database connect fail
-    fileprivate func outputFail(client: MongoClient) {
+    private func outputFail(client: MongoClient) {
         let status = client.serverStatus()
         switch status {
         case .error(let domain, let code, let message):

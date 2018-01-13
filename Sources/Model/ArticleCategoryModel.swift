@@ -10,18 +10,20 @@ import PerfectLib
 import Common
 import DataBase
 import PerfectMongoDB
+import Core
 
-public class ArticleCategoryModel {
+public class ArticleCategoryModel: SK_Model {
     
-    /// dartabase
-    var db: DB
+//    /// dartabase
+//    var db: DB
     
     /// colllection
     var collection: MongoCollection?
     
     public init() {
-        db = DB(db: "today_news").collection(name: "category")
-        collection =  db.collection
+//        db = DB(db: "today_news").collection(name: "category")
+//        collection =  db.collection
+        collection = db.database("today_news").collection("category")
     }
     
     public func categories() -> String {
