@@ -72,7 +72,7 @@ public class ArticleDetailModel: SK_Model {
     
     public func categoryTitle(type: Int) -> String {
         db = DB(db: "today_news").collection(name: "category")
-        collection =  db.collection
+        let collection =  db.collection
         /// 获取该集合下所有的信息
         let queryBson = BSON()
         queryBson.append(key: "type", int: type)
