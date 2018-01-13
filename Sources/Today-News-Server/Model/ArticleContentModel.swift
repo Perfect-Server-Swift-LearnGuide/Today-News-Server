@@ -9,21 +9,15 @@
 import PerfectLib
 import PerfectMongoDB
 
-public class ArticleContentModel {
+public class ArticleContentModel: SK_Model {
     
-    
+
     /// dataList
     public var dataList = [Any]()
     
-    /// dartabase
-    var db: DB
-    
-    /// colllection
-    var collection: MongoCollection?
-    
-    public init() {
-        db = DB(db: "today_news").collection(name: "article")
-        collection =  db.collection
+    override public init() {
+        super.init()
+        db.database(name: "today_news").collection(name: "article")
     }
     
     public func content(type: Int, page: Int) -> String {
@@ -39,9 +33,9 @@ public class ArticleContentModel {
         fields.append(key: "thumbnails", int: 1)
         let limit = 6
         let skip = limit * (page - 1)
-        let cursor = collection?.find(query: queryBson, fields: fields, flags: MongoQueryFlag.none, skip: skip, limit: limit, batchSize: 0)
+        let cursor = db.collection?.find(query: queryBson, fields: fields, flags: MongoQueryFlag.none, skip: skip, limit: limit, batchSize: 0)
 
-        var ary = [Any]()
+        var results = [Any]()
         while let c = cursor?.next() {
             var data:[String: Any] = c.dict as [String : Any]
             let bson = BSON()
@@ -67,13 +61,14 @@ public class ArticleContentModel {
             data["thumbnails"] = thumbnails
             
             data["comment_count"] = ArticleCommentModel().comment_count(article_bson:bson)
-            ary.append(data)
+            results.append(data)
         }
+        
         var response = [String:Any]()
-        if ary.count > 0 {
+        if results.count > 0 {
             response["result"] = "success"
             response["total"] = total(query: queryBson)
-            response["data"] = ary
+            response["data"] = results
         } else {
             response["result"] = "error"
         }
@@ -86,7 +81,7 @@ public class ArticleContentModel {
     
     /// get total num
     public func total(query: BSON) -> Int {
-        let result: MongoResult = collection!.count(query: query)
+        let result: MongoResult = db.collection!.count(query: query)
         switch result {
         case .replyInt(let total):
             return total

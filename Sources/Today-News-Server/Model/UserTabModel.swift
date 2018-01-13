@@ -9,25 +9,26 @@
 import PerfectLib
 import PerfectMongoDB
 
-public class UserTabModel {
+public class UserTabModel: SK_Model {
     
-    public init() {}
+    override public init() {
+        super.init()
+        db.database(name: "today_news").collection(name: "tabs")
+    }
     
     public func userTabs() -> String{
-        let db = DB(db: "today_news").collection(name: "tabs")
-        let collection: MongoCollection? = db.collection
         
         let queryBson = BSON()
-        let cursor = collection?.find(query: queryBson)
+        let cursor = db.collection?.find(query: queryBson)
         
-        var ary = [Any]()
+        var results = [Any]()
         while let c = cursor?.next() {
-            ary.append(c.dict)
+            results.append(c.dict)
         }
         var response = [String:Any]()
-        if ary.count > 0 {
+        if results.count > 0 {
             response["result"] = "success"
-            response["data"] = ary.first
+            response["data"] = results.first
         } else {
             response["result"] = "error"
         }

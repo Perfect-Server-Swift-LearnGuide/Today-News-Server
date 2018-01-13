@@ -9,17 +9,12 @@
 import PerfectLib
 import PerfectMongoDB
 
-public class ArticleDetailModel {
+public class ArticleDetailModel: SK_Model {
     
-    /// dartabase
-    var db: DB
     
-    /// colllection
-    var collection: MongoCollection?
-    
-    public init() {
-        db = DB(db: "today_news").collection(name: "article")
-        collection =  db.collection
+    override public init() {
+        super.init()
+        db.database(name: "today_news").collection(name: "article")
     }
     
     public func detail(_ id: String) -> String {
@@ -27,9 +22,9 @@ public class ArticleDetailModel {
         queryBson.append(key: "_id", oid: BSON.OID(id))
         queryBson.append(key: "isDelete", bool: false)
 
-        let cursor = collection?.find(query: queryBson)
+        let cursor = db.collection?.find(query: queryBson)
         
-        var ary = [Any]()
+        var results = [Any]()
         while let c = cursor?.next() {
             var data:[String: Any] = c.dict as [String : Any]
             let bson = BSON()
@@ -60,12 +55,12 @@ public class ArticleDetailModel {
             data["thumbnails"] = thumbnails
             
             data["comment_count"] = ArticleCommentModel().comment_count(article_bson:bson)
-            ary.append(data)
+            results.append(data)
         }
         var response = [String:Any]()
-        if ary.count > 0 {
+        if results.count > 0 {
             response["result"] = "success"
-            response["data"] = ary.first as! [String: Any]
+            response["data"] = results.first as! [String: Any]
         } else {
             response["result"] = "error"
         }

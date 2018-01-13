@@ -9,17 +9,12 @@
 import PerfectLib
 import PerfectMongoDB
 
-public class UserLoginModel {
+public class UserLoginModel: SK_Model {
     
-    /// dartabase
-    var db: DB
     
-    /// colllection
-    var collection: MongoCollection?
-    
-    public init() {
-        db = DB(db: "today_news").collection(name: "user")
-        collection =  db.collection
+    override public init() {
+        super.init()
+        db.database(name: "today_news").collection(name: "user")
     }
     
     public func login(data: [String: String]) -> String{
@@ -42,9 +37,9 @@ public class UserLoginModel {
     }
     
     func userInfo(_ bson: BSON) -> [String: Any] {
-        let cursor = collection?.find(query: bson)
+        let cursor = db.collection?.find(query: bson)
         
-        var ary = [Any]()
+        var results = [Any]()
         while let c = cursor?.next() {
             var user = [String: Any]()
             let data:[String: Any] = c.dict as [String : Any]
@@ -60,10 +55,10 @@ public class UserLoginModel {
             } else {
                 user["user_id"] = ""
             }
-            ary.append(user)
+            results.append(user)
         }
         
-        guard let data = ary.first as? [String: Any] else {
+        guard let data = results.first as? [String: Any] else {
             return [String: Any]()
         }
         
@@ -72,7 +67,7 @@ public class UserLoginModel {
     
     /// get total num
     public func total(_ bson: BSON) -> Int {
-        let result: MongoResult = collection!.count(query: bson)
+        let result: MongoResult = db.collection!.count(query: bson)
         switch result {
         case .replyInt(let total):
             return total

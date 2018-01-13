@@ -23,20 +23,19 @@ public class ArticleCategoryModel: SK_Model {
         let queryBson = BSON()
         let cursor = db.collection?.find(query: queryBson)
 
-        var ary = [Any]()
+        var results = [Any]()
         while let c = cursor?.next() {
 
             let data = c.dict
-            var thisPost = [String: Any]()
-            
-            thisPost["type"] = data["type"] as? Int
-            thisPost["title"] = data["title"] as? String
-            ary.append(thisPost)
+            results.append([
+                "type" : data["type"] as? Int,
+                "title"   : data["title"] as? String
+            ])
         }
         var response = [String:Any]()
-        if ary.count > 0 {
+        if results.count > 0 {
             response["result"] = "success"
-            response["data"] = ary
+            response["data"] = results
         } else {
             response["result"] = "error"
         }
@@ -49,7 +48,6 @@ public class ArticleCategoryModel: SK_Model {
     
     public func categoryTitle(type: Int) -> String {
         
-        /// 获取该集合下所有的信息
         let queryBson = BSON()
         queryBson.append(key: "type", int: type)
         let cursor = db.collection?.find(query: queryBson)

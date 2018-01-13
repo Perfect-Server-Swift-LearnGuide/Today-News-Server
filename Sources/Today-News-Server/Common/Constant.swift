@@ -12,13 +12,13 @@ public enum Server {
     
 
     /// 路由
-    public enum Route:String {
+    public enum Route: String {
         
         /// 根Url
         case baseUrl =  "Api/"
         
         /// 文章
-        public enum Article:String {
+        public enum Article: String {
             
             /// 分类
             case category
@@ -32,7 +32,7 @@ public enum Server {
         }
         
         /// 用户
-        public enum User:String {
+        public enum User: String {
             
             /// 注册
             case register
@@ -50,6 +50,11 @@ public enum Server {
         
         case dir
         
+    }
+    
+    /// 状态码
+    public enum ErrorStatus: Int {
+       
     }
     
 }
