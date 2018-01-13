@@ -22,7 +22,7 @@ open class DB {
     /// MongoCollection
     open var collection: MongoCollection?
     
-    open init(db: String) {
+    public init(db: String) {
         
         /// 通过默认的端口连接MongoDB
         self.client = try! MongoClient(uri: database.today_news.connection + db)
@@ -32,10 +32,10 @@ open class DB {
       
     }
     
-    open init() {}
+    public init() {}
     
     // init database 
-    open func databse(name: String) -> Self {
+    open func database(name: String) -> Self {
         /// 通过默认的端口连接MongoDB
         self.client = try! MongoClient(uri: database.today_news.connection + name)
         /// DataBase
