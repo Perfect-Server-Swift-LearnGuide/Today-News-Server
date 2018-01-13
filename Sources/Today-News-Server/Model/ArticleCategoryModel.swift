@@ -27,7 +27,7 @@ public class ArticleCategoryModel: SK_Model {
 let db = DB(db:"today_news").collection(name:"category")
 collection = db.collection
         print("----------")
-        print(db.collectionNames())
+        print(db.database?.collectionNames())
         print(collection)
         print(collection?.getLastError())
     }
