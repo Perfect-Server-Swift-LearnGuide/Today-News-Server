@@ -1123,12 +1123,12 @@
 		OBJ_8 /* Today-News-Server */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_30 /* main.swift */,
 				OBJ_9 /* Common */,
 				OBJ_14 /* Config */,
 				OBJ_17 /* Core */,
 				OBJ_19 /* DataBase */,
 				OBJ_21 /* Handler */,
-				OBJ_30 /* main.swift */,
 				OBJ_31 /* Model */,
 				OBJ_39 /* Route */,
 				OBJ_41 /* Server */,

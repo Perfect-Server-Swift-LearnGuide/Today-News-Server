@@ -50,7 +50,6 @@ open class DB {
     /// init collection
     open func collection(name: String) -> Self {
         self.collection = self.database?.getCollection(name: Database.today_news.dbprefix + name)
-        print(self.database?.collectionNames())
         return self
     }
     
