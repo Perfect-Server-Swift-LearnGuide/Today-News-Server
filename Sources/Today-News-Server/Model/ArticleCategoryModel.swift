@@ -10,7 +10,7 @@ import PerfectLib
 
 import PerfectMongoDB
 
-public class ArticleCategoryModel {
+public class ArticleCategoryModel: SK_Model {
     
 //    /// dartabase
 //    var db: DB
@@ -35,9 +35,7 @@ collection = db.collection
         
         let queryBson = BSON()
         let cursor = collection?.find(query: queryBson)
-        print(collection)
-        print(collection?.getLastError())
-        print(cursor)
+
         var ary = [Any]()
         while let c = cursor?.next() {
             print(c.dict)
@@ -57,7 +55,7 @@ collection = db.collection
         }
       
 
-   //   db.close()
+      //  db.close()
         
         return try! response.jsonEncodedString()
     }
