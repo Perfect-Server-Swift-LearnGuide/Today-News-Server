@@ -41,7 +41,7 @@ open class DB {
         /// DataBase
         self.database = self.client?.getDatabase(name: name)
         print(Database.today_news.connection + name)
-        outputFail(self.client)
+        outputFail(client: self.client)
         return self
     }
     
