@@ -41,6 +41,8 @@ public class ArticleCategoryModel: SK_Model {
             response["result"] = "error"
         }
       
+
+       db.close()
         
         return try! response.jsonEncodedString()
     }
