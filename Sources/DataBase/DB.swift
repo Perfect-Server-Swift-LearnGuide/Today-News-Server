@@ -31,14 +31,13 @@ open class DB {
         self.database = self.client.getDatabase(name: db)
       
     }
-    open init() {
-        
-        /// 通过默认的端口连接MongoDB
-        self.client = try! MongoClient(uri: database.today_news.connection + db)
-    }
+    
+    open init() {}
     
     // init database 
     open func databse(name: String) -> Self {
+        /// 通过默认的端口连接MongoDB
+        self.client = try! MongoClient(uri: database.today_news.connection + name)
         /// DataBase
         self.database = self.client.getDatabase(name: name)
         return self
