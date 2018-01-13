@@ -15,7 +15,7 @@ public class ArticleCategoryModel: SK_Model {
     override public init() {
         super.init()
         
-        db.database(name: "today_news").collection(name: "category")
+        let _ = db.database(name: "today_news").collection(name: "category")
     }
     
     public func categories() -> String {

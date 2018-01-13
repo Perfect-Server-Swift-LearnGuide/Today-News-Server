@@ -13,7 +13,7 @@ public class UserTabModel: SK_Model {
     
     override public init() {
         super.init()
-        db.database(name: "today_news").collection(name: "tabs")
+        let _ = db.database(name: "today_news").collection(name: "tabs")
     }
     
     public func userTabs() -> String{

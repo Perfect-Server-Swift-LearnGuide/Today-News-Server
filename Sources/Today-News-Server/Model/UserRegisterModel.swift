@@ -14,7 +14,7 @@ public class UserRegisterModel: SK_Model {
     
     override public init() {
         super.init()
-        db.database(name: "today_news").collection(name: "user")
+        let _ = db.database(name: "today_news").collection(name: "user")
     }
     
     public func register(data: [String: String]) -> String {

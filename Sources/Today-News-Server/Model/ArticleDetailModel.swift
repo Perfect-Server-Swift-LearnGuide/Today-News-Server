@@ -14,7 +14,7 @@ public class ArticleDetailModel: SK_Model {
     
     override public init() {
         super.init()
-        db.database(name: "today_news").collection(name: "article")
+        let _ = db.database(name: "today_news").collection(name: "article")
     }
     
     public func detail(_ id: String) -> String {
