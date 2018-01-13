@@ -38,16 +38,20 @@ open class DB {
     open func database(name: String) -> Self {
         /// 通过默认的端口连接MongoDB
         self.client = try! MongoClient(uri: Database.today_news.connection + name)
+	guard let client = self.client else {
+	    return self		
+	}
         /// DataBase
-        self.database = self.client?.getDatabase(name: name)
-        print(Database.today_news.connection + name)
-        outputFail(client: self.client)
+        outputFail(client: client)
+        self.database = client.getDatabase(name: name)
         return self
     }
     
     /// init collection
     open func collection(name: String) -> Self {
         self.collection = self.database?.getCollection(name: Database.today_news.dbprefix + name)
+	print(self.database?.collectionNames())
+	print(self.collection)
         return self
     }
     

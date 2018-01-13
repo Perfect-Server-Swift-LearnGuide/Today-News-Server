@@ -22,7 +22,10 @@ public class ArticleCategoryModel: SK_Model {
 //        db = DB(db: "today_news").collection(name: "category")
 //        collection =  db.collection
 	super.init()
-        collection = db.database(name: "today_news").collection(name: "category").collection
+  //      self.collection = db.database(name: "today_news").collection(name: "category").collection
+//	print(self.collection)
+let db = DB(db:"today_news").collection(name:"category")
+collection = db.collection	
     }
     
     public func categories() -> String {
@@ -40,7 +43,6 @@ public class ArticleCategoryModel: SK_Model {
             thisPost["title"] = data["title"] as? String
             ary.append(thisPost)
         }
-
         var response = [String:Any]()
         if ary.count > 0 {
             response["result"] = "success"
@@ -50,7 +52,7 @@ public class ArticleCategoryModel: SK_Model {
         }
       
 
-        db.close()
+      //  db.close()
         
         return try! response.jsonEncodedString()
     }
