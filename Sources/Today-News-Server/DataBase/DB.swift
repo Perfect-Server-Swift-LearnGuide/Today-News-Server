@@ -36,7 +36,7 @@ open class DB {
     
     // init database 
     open func database(name: String) -> Self {
-        guard let c = self.client else {
+        guard let _ = self.client else {
             /// 通过默认的端口连接MongoDB
             self.client = try! MongoClient(uri: Database.today_news.connection + name)
             /// DataBase
