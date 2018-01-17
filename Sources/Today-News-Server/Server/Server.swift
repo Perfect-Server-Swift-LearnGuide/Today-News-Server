@@ -42,7 +42,7 @@ public struct App {
         let responseFilters: [(HTTPResponseFilter, HTTPFilterPriority)] = [
             (ResponseFilter(), HTTPFilterPriority.high)
         ]
-        let requestFilters: [(HTTPResponseFilter, HTTPFilterPriority)] = [
+        let requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
             (Filter1(), HTTPFilterPriority.high)
         ]
         server.setRequestFilters(requestFilters)
