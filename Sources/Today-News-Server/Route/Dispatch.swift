@@ -14,7 +14,7 @@ import PerfectHTTPServer
 open class SK_Dispatch {
     
     public static let requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
-        (self, HTTPFilterPriority.high)
+        (RequestFilter(), HTTPFilterPriority.high)
     ]
 
 }
