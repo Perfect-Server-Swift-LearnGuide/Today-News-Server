@@ -19,16 +19,20 @@ public struct Route {
         var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
         
         /// 文章
-        let article = Article.article()
+        let article = ArticleController.article()
         
         /// 用户
         let user = User.user()
+//        baseRoutes.add(method: )
         
-        /// 文章
-        baseRoutes.add(method: .get, uri: "article/{action}", handler: article)
-        
-        /// 用户
-        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
+//        /// 文章
+        baseRoutes.add(method: .get, uri: "*", handler: {
+            req, res in
+            print("route");
+        })
+//
+//        /// 用户
+//        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
         
         /// 注册到服务器主路由表上
         self.routes.add(baseRoutes)

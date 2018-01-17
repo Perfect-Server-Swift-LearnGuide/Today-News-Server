@@ -11,8 +11,11 @@ import PerfectHTTP
 import PerfectMongoDB
 
 
-public struct Article {
+public class ArticleController: SK_Controller {
     
+    override public init() {
+        
+    }
     
     public  static func article()  -> RequestHandler {
         return { req, res in

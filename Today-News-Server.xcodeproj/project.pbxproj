@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0435A610200F38200052E76A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435A60F200F38200052E76A /* Controller.swift */; };
 		OBJ_192 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_198 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* Package.swift */; };
 		OBJ_204 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
@@ -443,6 +444,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0435A60F200F38200052E76A /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		"COpenSSL::COpenSSL::Product" /* COpenSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = COpenSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LinuxBridge::LinuxBridge::Product" /* LinuxBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LinuxBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* BSONExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSONExtension.swift; sourceTree = "<group>"; };
@@ -894,6 +896,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_18 /* Model.swift */,
+				0435A60F200F38200052E76A /* Controller.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1028,7 +1031,7 @@
 			path = ".build/checkouts/Perfect-MongoDB.git-5274457077074884241/Sources/PerfectMongoDB";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1038,7 +1041,6 @@
 				OBJ_45 /* Dependencies */,
 				OBJ_174 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_57 /* PerfectHTTPServer 3.0.3 */ = {
@@ -1584,7 +1586,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_174 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1718,6 +1720,7 @@
 				OBJ_264 /* Model.swift in Sources */,
 				OBJ_265 /* DB.swift in Sources */,
 				OBJ_266 /* Article.swift in Sources */,
+				0435A610200F38200052E76A /* Controller.swift in Sources */,
 				OBJ_267 /* ArticleCategoryHandler.swift in Sources */,
 				OBJ_268 /* ArticleContentHandler.swift in Sources */,
 				OBJ_269 /* ArticleDetailHandler.swift in Sources */,
