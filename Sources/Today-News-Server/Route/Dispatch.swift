@@ -58,12 +58,12 @@ extension SK_Dispatch: HTTPRequestFilter {
 
          public func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
             self.request = request
-            print("method: \(self.request.method)")
-            print("path: \(self.request.path)")
-            print("queryParams: \(self.request.queryParams)")
+            print("method: \(self.request?.method)")
+            print("path: \(self.request?.path)")
+            print("queryParams: \(self.request?.queryParams)")
             print("headers: \(self.request.headers)")
             print("postParams: \(request.postParams)")
-            self.request = request
+          
             callback(.continue(request, response))
         }
    
