@@ -40,7 +40,7 @@ public struct App {
         server.setResponseFilters(responseFilters)
         
         /// 创建路由
-        let routes = Route().routes
+//        let routes = Route().routes
         
         /// 为服务器注册路由
         server.addRoutes(dispatch.routes)
