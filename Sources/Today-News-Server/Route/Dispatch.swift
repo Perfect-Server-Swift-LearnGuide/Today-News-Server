@@ -22,7 +22,7 @@ open class SK_Dispatch {
     
     
     
-     var routes: Routes = {
+     lazy var routes: Routes = {
             var routes = Routes()
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
