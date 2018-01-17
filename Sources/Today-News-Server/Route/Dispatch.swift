@@ -54,8 +54,7 @@ open class SK_Dispatch {
 extension SK_Dispatch {
     struct RequestFilter: HTTPRequestFilter {
         
-        var request: HTTPRequest
-        
+        var request: Any
         
          func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
             print("method: \(request.method)")
