@@ -42,7 +42,7 @@ public struct App {
         let routes = Route().routes
         
         /// 为服务器注册路由
-        server.addRoutes(routes)
+        server.addRoutes(SK_Dispatch.routes)
         
         /// 监听端口
         server.serverPort = UInt16(app.hostport)

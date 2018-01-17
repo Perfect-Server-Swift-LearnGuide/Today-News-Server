@@ -13,9 +13,36 @@ import PerfectHTTPServer
 
 open class SK_Dispatch {
 
-    static let requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
+    static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
         (RequestFilter(), HTTPFilterPriority.high)
     ]
+    
+    static var routes: Routes = {
+        set{}
+        get{
+            /// 设置主路由
+            var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
+            
+//            /// 文章
+//            let article = ArticleController.article()
+//            
+//            /// 用户
+//            let user = User.user()
+            //        baseRoutes.add(method: )
+            
+            //        /// 文章
+            baseRoutes.add(method: .get, uri: "*", handler: {
+                req, res in
+                print("route");
+            })
+            //
+            //        /// 用户
+            //        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
+            
+            /// 注册到服务器主路由表上
+            self.routes.add(baseRoutes)
+        }
+    }
 
 }
 
