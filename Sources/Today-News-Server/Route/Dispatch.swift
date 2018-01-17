@@ -25,7 +25,7 @@ open class SK_Dispatch {
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
         
-        print("================   \(RequestFilter.method)")
+        print("================   \(requestFilter.method)")
 //            /// 文章
 //            let article = ArticleController.article()
 //            
