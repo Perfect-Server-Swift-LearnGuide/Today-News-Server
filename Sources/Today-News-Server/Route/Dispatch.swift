@@ -12,11 +12,12 @@ import PerfectHTTP
 import PerfectHTTPServer
 
 open class SK_Dispatch {
-
-    public var request: HTTPRequest = HTTPRequest()
+    
+    var requestFilter = RequestFilter()
+    
     
     static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
-        (RequestFilter(), HTTPFilterPriority.high)
+        (requestFilter, HTTPFilterPriority.high)
     ]
     
     static var routes: Routes = {
@@ -32,7 +33,8 @@ open class SK_Dispatch {
             //        baseRoutes.add(method: )
             
             //        /// 文章
-        baseRoutes.add(method: HTTPMethod.from(string: request.method), uri: "*", handler: {
+        print(HTTPMethod.from(string: request.method))
+        baseRoutes.add(method: HTTPMethod.from(string: requestFilter.request.method), uri: "*", handler: {
                 req, res in
                 print("route")
             })
@@ -51,6 +53,10 @@ open class SK_Dispatch {
 
 extension SK_Dispatch {
     struct RequestFilter: HTTPRequestFilter {
+        
+        var request: HTTPRequest
+        
+        
         func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
             print("method: \(request.method)")
             print("path: \(request.path)")
