@@ -41,7 +41,7 @@ open class SK_Dispatch {
             
             /// 注册到服务器主路由表上
             self.routes.add(baseRoutes)
-        }
+        }()
     }
 
 }
