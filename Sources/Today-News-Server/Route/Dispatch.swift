@@ -61,7 +61,7 @@ extension SK_Dispatch: HTTPRequestFilter {
             print("method: \(self.request?.method)")
             print("path: \(self.request?.path)")
             print("queryParams: \(self.request?.queryParams)")
-            print("headers: \(self.request.headers)")
+            print("headers: \(self.request?.headers)")
             print("postParams: \(request.postParams)")
           
             callback(.continue(request, response))
