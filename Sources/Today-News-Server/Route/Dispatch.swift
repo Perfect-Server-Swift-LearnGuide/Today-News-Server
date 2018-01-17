@@ -27,7 +27,7 @@ open class SK_Dispatch {
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
         
-        print("================   \(self.request!.method)")
+//        print("================   \(self.request!.method)")
 //            /// 文章
 //            let article = ArticleController.article()
 //            
@@ -58,10 +58,10 @@ extension SK_Dispatch: HTTPRequestFilter {
 
          public func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
             self.request = request
-            print("method: \(request.method)")
-            print("path: \(request.path)")
-            print("queryParams: \(request.queryParams)")
-            print("headers: \(request.headers)")
+            print("method: \(self.request.method)")
+            print("path: \(self.request.path)")
+            print("queryParams: \(self.request.queryParams)")
+            print("headers: \(self.request.headers)")
             print("postParams: \(request.postParams)")
             self.request = request
             callback(.continue(request, response))
