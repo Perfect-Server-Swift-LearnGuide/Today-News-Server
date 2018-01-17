@@ -26,8 +26,8 @@ open class SK_Dispatch {
             var routes = Routes()
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
-        
-//        print("================   \(self.request!.method)")
+print("hehehheehhhh")        
+        print("================   \(self.request!.method)")
 //            /// 文章
 //            let article = ArticleController.article()
 //            
@@ -37,7 +37,7 @@ open class SK_Dispatch {
             
             //        /// 文章
 //        print(HTTPMethod.from(string: request.method))
-        baseRoutes.add(method: .get, uri: "*", handler: {
+        baseRoutes.add(method: .get, uri: "/**", handler: {
                 req, res in
                 print("route")
             })
