@@ -13,7 +13,7 @@ import PerfectHTTPServer
 
 open class SK_Dispatch {
     
-//    var requestFilter = RequestFilter()
+    var requestFilter = RequestFilter()
     
     
     static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
@@ -24,7 +24,8 @@ open class SK_Dispatch {
             var routes = Routes()
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
-            
+        
+        print("================   \(RequestFilter.method)")
 //            /// 文章
 //            let article = ArticleController.article()
 //            
@@ -52,13 +53,12 @@ open class SK_Dispatch {
 }
 
 extension SK_Dispatch {
-    struct RequestFilter: HTTPRequestFilter {
+    struct RequestFilter: HTTPRequestFilter, HTTPRequest {
         
 //        var request: Any
         
          func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
-            print(request)
-            print(request.self)
+         
             print("method: \(request.method)")
             print("path: \(request.path)")
             print("queryParams: \(request.queryParams)")
