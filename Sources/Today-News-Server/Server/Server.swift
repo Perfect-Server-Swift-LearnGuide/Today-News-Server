@@ -34,16 +34,9 @@ public struct App {
             (ResponseFilter(), HTTPFilterPriority.high)
         ]
 
-        let dispatch = SK_Dispatch()
-        server.setRequestFilters(dispatch.requestFilters)
+        server.setRequestFilters(SK_Dispatch.requestFilters)
         /// t添加响应过滤器
         server.setResponseFilters(responseFilters)
-        
-        /// 创建路由
-//        let routes = Route().routes
-        
-        /// 为服务器注册路由
-        server.addRoutes(dispatch.routes)
         
         /// 监听端口
         server.serverPort = UInt16(app.hostport)
