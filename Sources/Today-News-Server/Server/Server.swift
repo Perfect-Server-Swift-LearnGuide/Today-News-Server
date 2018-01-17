@@ -34,7 +34,7 @@ public struct App {
             (ResponseFilter(), HTTPFilterPriority.high)
         ]
 
-        server.setRequestFilters(SK_Dipatch.requestFilters)
+        server.setRequestFilters(SK_Dispatch.requestFilters)
         /// t添加响应过滤器
         server.setResponseFilters(responseFilters)
         
