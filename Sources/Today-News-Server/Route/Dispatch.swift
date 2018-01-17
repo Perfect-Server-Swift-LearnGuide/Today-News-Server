@@ -16,13 +16,13 @@ open class SK_Dispatch {
 //    var requestFilter = RequestFilter()
     var request: HTTPRequest?
     
-    static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
-        (SK_Dispatch(), HTTPFilterPriority.high)
+     var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
+        (self, HTTPFilterPriority.high)
     ]
     
     
     
-    static var routes: Routes = {
+     var routes: Routes = {
             var routes = Routes()
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
