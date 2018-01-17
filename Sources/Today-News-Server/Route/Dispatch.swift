@@ -17,7 +17,7 @@ open class SK_Dispatch {
     var request: HTTPRequest?
     
     static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
-        (RequestFilter(), HTTPFilterPriority.high)
+        (SK_Dispatch(), HTTPFilterPriority.high)
     ]
     
     
