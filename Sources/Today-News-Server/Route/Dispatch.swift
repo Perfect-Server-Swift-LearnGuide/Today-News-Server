@@ -18,8 +18,7 @@ open class SK_Dispatch {
     ]
     
     static var routes: Routes = {
-        set{}
-        get{
+            var routes = Routes()
             /// 设置主路由
             var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
             
@@ -40,9 +39,11 @@ open class SK_Dispatch {
             //        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
             
             /// 注册到服务器主路由表上
-            self.routes.add(baseRoutes)
-        }()
-    }
+            routes.add(baseRoutes)
+            
+        return routes
+    }()
+  
 
 }
 
