@@ -58,7 +58,7 @@ extension SK_Dispatch {
         
          func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
             print(request)
-            print(request.Self)
+            print(request.self)
             print("method: \(request.method)")
             print("path: \(request.path)")
             print("queryParams: \(request.queryParams)")
