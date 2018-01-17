@@ -33,11 +33,11 @@ open class SK_Dispatch {
             //        baseRoutes.add(method: )
             
             //        /// 文章
-        print(HTTPMethod.from(string: request.method))
-        baseRoutes.add(method: HTTPMethod.from(string: requestFilter.request.method), uri: "*", handler: {
-                req, res in
-                print("route")
-            })
+//        print(HTTPMethod.from(string: request.method))
+//        baseRoutes.add(method: HTTPMethod.from(string: requestFilter.request.method), uri: "*", handler: {
+//                req, res in
+//                print("route")
+//            })
             //
             //        /// 用户
             //        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
@@ -63,7 +63,7 @@ extension SK_Dispatch {
             print("queryParams: \(request.queryParams)")
             print("headers: \(request.headers)")
             print("postParams: \(request.postParams)")
-            self.request = request
+       //     self.request = request
             callback(.continue(request, response))
         }
     }
