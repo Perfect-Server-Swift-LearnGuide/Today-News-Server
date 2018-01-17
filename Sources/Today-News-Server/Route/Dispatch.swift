@@ -54,9 +54,11 @@ open class SK_Dispatch {
 extension SK_Dispatch {
     struct RequestFilter: HTTPRequestFilter {
         
-        var request: Any
+//        var request: Any
         
          func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
+            print(request)
+            print(request.Self)
             print("method: \(request.method)")
             print("path: \(request.path)")
             print("queryParams: \(request.queryParams)")
