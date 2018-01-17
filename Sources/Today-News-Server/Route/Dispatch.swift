@@ -23,7 +23,14 @@ extension SK_Dispatch {
 
     struct RequestFilter: HTTPRequestFilter {
          func filter(request: HTTPRequest, response: HTTPResponse, callback: (HTTPRequestFilterResult) -> ()) {
-            response.appendBody(string: "<h1>呼呼呼符合度</h1>")
+            response.appendBody(string:
+                """
+                    {
+                        "a" : "rrrr",
+                        "bbb" : "r555"
+                }
+                """
+            )
             print("method: \(request.method)")
             print("path: \(request.path)")
             print("queryParams: \(request.queryParams)")
