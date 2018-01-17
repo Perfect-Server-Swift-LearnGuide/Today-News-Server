@@ -20,9 +20,9 @@
 import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
-//import Foundation
+import Foundation
 
-//print(NSClassFromString("ffff"))
+print(NSClassFromString("ffff"))
 
 
 
