@@ -13,11 +13,11 @@ import PerfectHTTPServer
 
 open class SK_Dispatch {
     
-    var requestFilter = RequestFilter()
+//    var requestFilter = RequestFilter()
     
     
     static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
-        (requestFilter, HTTPFilterPriority.high)
+        (RequestFilter(), HTTPFilterPriority.high)
     ]
     
     static var routes: Routes = {
