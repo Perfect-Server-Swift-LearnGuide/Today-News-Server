@@ -16,7 +16,7 @@ open class SK_Dispatch {
 //    var requestFilter = RequestFilter()
     var request: HTTPRequest?
     
-     var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
+    lazy  var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
         (self, HTTPFilterPriority.high)
     ]
     
