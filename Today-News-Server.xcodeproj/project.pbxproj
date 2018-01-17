@@ -28,7 +28,7 @@
 		OBJ_265 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Controller.swift */; };
 		OBJ_266 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Model.swift */; };
 		OBJ_267 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* DB.swift */; };
-		OBJ_268 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Article.swift */; };
+		OBJ_268 /* ArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* ArticleController.swift */; };
 		OBJ_269 /* ArticleCategoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* ArticleCategoryHandler.swift */; };
 		OBJ_270 /* ArticleContentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* ArticleContentHandler.swift */; };
 		OBJ_271 /* ArticleDetailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* ArticleDetailHandler.swift */; };
@@ -517,7 +517,7 @@
 		OBJ_18 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		OBJ_21 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
-		OBJ_23 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		OBJ_23 /* ArticleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleController.swift; sourceTree = "<group>"; };
 		OBJ_24 /* ArticleCategoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryHandler.swift; sourceTree = "<group>"; };
 		OBJ_25 /* ArticleContentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContentHandler.swift; sourceTree = "<group>"; };
 		OBJ_26 /* ArticleDetailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailHandler.swift; sourceTree = "<group>"; };
@@ -942,7 +942,7 @@
 		OBJ_22 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_23 /* Article.swift */,
+				OBJ_23 /* ArticleController.swift */,
 				OBJ_24 /* ArticleCategoryHandler.swift */,
 				OBJ_25 /* ArticleContentHandler.swift */,
 				OBJ_26 /* ArticleDetailHandler.swift */,
@@ -1724,7 +1724,7 @@
 				OBJ_265 /* Controller.swift in Sources */,
 				OBJ_266 /* Model.swift in Sources */,
 				OBJ_267 /* DB.swift in Sources */,
-				OBJ_268 /* Article.swift in Sources */,
+				OBJ_268 /* ArticleController.swift in Sources */,
 				OBJ_269 /* ArticleCategoryHandler.swift in Sources */,
 				OBJ_270 /* ArticleContentHandler.swift in Sources */,
 				OBJ_271 /* ArticleDetailHandler.swift in Sources */,

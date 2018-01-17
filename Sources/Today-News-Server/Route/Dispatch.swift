@@ -13,6 +13,8 @@ import PerfectHTTPServer
 
 open class SK_Dispatch {
 
+    public var request: HTTPRequest = HTTPRequest()
+    
     static var requestFilters: [(HTTPRequestFilter,HTTPFilterPriority)] = [
         (RequestFilter(), HTTPFilterPriority.high)
     ]
@@ -30,9 +32,9 @@ open class SK_Dispatch {
             //        baseRoutes.add(method: )
             
             //        /// 文章
-            baseRoutes.add(method: .get, uri: "*", handler: {
+        baseRoutes.add(method: HTTPMethod.from(string: request.method), uri: "*", handler: {
                 req, res in
-                print("route");
+                print("route")
             })
             //
             //        /// 用户
@@ -55,6 +57,7 @@ extension SK_Dispatch {
             print("queryParams: \(request.queryParams)")
             print("headers: \(request.headers)")
             print("postParams: \(request.postParams)")
+            self.request = request
             callback(.continue(request, response))
         }
     }
