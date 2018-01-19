@@ -11,7 +11,7 @@ import PerfectHTTP
 import PerfectMongoDB
 
 
-public struct UserController: SK_Controller {
+public class UserController: SK_Controller {
     
     override public init() {
         

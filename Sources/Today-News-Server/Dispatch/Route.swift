@@ -18,9 +18,6 @@ public struct Route {
         /// 设置主路由
         var baseRoutes = Routes(baseUri: Server.Route.baseUrl.rawValue)
         
-        /// 用户
-        let user = User.user()
-        
        /// 文章
         baseRoutes.add(method: .get, uri: "article/{action}", handler: ArticleController().index())
 
