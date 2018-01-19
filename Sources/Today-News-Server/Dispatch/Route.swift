@@ -22,7 +22,7 @@ public struct Route {
         baseRoutes.add(method: .get, uri: "article/{action}", handler: ArticleController().index())
 
         /// 用户
-        baseRoutes.add(method: .get, uri: "user/{action}", handler: User().index())
+        baseRoutes.add(method: .get, uri: "user/{action}", handler: UserController().index())
         
         /// 注册到服务器主路由表上
         self.routes.add(baseRoutes)
