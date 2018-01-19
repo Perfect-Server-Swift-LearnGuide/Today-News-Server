@@ -28,15 +28,15 @@ public class UserController: SK_Controller {
             /// 用户我的section
             case Server.Route.User.tab.rawValue:
                 
-                res.appendBody(string: tab(req: req, res: res))
+                res.appendBody(string: self.tab(req: req, res: res))
                 
             case Server.Route.User.register.rawValue:
                 
-                 res.appendBody(string: register(req: req, res: res))
+                 res.appendBody(string: self.register(req: req, res: res))
                 
             case Server.Route.User.login.rawValue:
                 
-                res.appendBody(string: login(req: req, res: res))
+                res.appendBody(string: self.login(req: req, res: res))
                 
             default:
                 print("default")
@@ -55,7 +55,7 @@ public class UserController: SK_Controller {
         params["phone"] = req.param(name: "phone")
         params["pwd"] = req.param(name: "pwd")
         
-        let login = UserLoginModel()
+        let login = UserLogin()
         return login.login(data: params)
         
     }
@@ -69,7 +69,7 @@ public class UserController: SK_Controller {
         let index = pwd?.index(pwd!.endIndex, offsetBy: -6)
         params["pwd"] = pwd?.substring(from: index!)
         
-        let register = UserRegisterModel()
+        let register = UserRegister()
         return register.register(data: params)
         
     }
@@ -77,7 +77,7 @@ public class UserController: SK_Controller {
     /// 获取文章分类
     public func tab(req: HTTPRequest, res: HTTPResponse) -> String {
         
-        let tab = UserTabModel()
+        let tab = UserTab()
         return tab.userTabs()
         
     }

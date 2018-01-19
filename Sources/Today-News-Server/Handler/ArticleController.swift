@@ -26,15 +26,15 @@ public class ArticleController: SK_Controller {
                 
             /// 分类
             case Server.Route.Article.category.rawValue:
-                res.appendBody(string: category(req: req, res: res))
+                res.appendBody(string: self.category(req: req, res: res))
 
             /// 对应分类文章
             case Server.Route.Article.content.rawValue:
-                res.appendBody(string: content(req: req, res: res))
+                res.appendBody(string: self.content(req: req, res: res))
                 
             /// 文章详情
             case Server.Route.Article.detail.rawValue:
-                res.appendBody(string: detail(req: req, res: res))
+                res.appendBody(string: self.detail(req: req, res: res))
             
             default:
                 print("default")
@@ -47,7 +47,7 @@ public class ArticleController: SK_Controller {
     
     /// 获取文章分类
     public func category(req: HTTPRequest, res: HTTPResponse) -> String {
-        let category = ArticleCategoryModel()
+        let category = ArticleCategory()
         return category.categories()
     }
     
@@ -63,14 +63,14 @@ public class ArticleController: SK_Controller {
             requestPage = Int(page)!
         }
         
-        let content = ArticleContentModel()
+        let content = ArticleContent()
         return content.content(type: requestType, page: requestPage)
     }
     
     /// 获取文章详情
     public func detail(req: HTTPRequest, res: HTTPResponse) -> String {
         
-        let detail = ArticleDetailModel()
+        let detail = ArticleDetail()
         return detail.detail(req.param(name: "article_id")!)
     }
 }
