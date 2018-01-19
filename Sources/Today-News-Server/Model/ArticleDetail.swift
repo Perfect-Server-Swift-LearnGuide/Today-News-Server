@@ -54,7 +54,7 @@ public class ArticleDetail: SK_Model {
             
             data["thumbnails"] = thumbnails
             
-            data["comment_count"] = ArticleCommentModel().comment_count(article_bson:bson)
+            data["comment_count"] = ArticleComment().comment_count(article_bson:bson)
             results.append(data)
         }
         var response = [String:Any]()
