@@ -968,12 +968,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		OBJ_40 /* Route */ = {
+		OBJ_40 /* Dispatch */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_41 /* Route.swift */,
 				049DCFAB200F468D00A81CB2 /* Dispatch.swift */,
 			);
+			name = Dispatch;
 			path = Route;
 			sourceTree = "<group>";
 		};
@@ -1034,7 +1035,7 @@
 			path = ".build/checkouts/Perfect-MongoDB.git-5274457077074884241/Sources/PerfectMongoDB";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1044,7 +1045,6 @@
 				OBJ_46 /* Dependencies */,
 				OBJ_175 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_58 /* PerfectHTTPServer 3.0.3 */ = {
@@ -1136,7 +1136,7 @@
 				OBJ_22 /* Handler */,
 				OBJ_31 /* main.swift */,
 				OBJ_32 /* Model */,
-				OBJ_40 /* Route */,
+				OBJ_40 /* Dispatch */,
 				OBJ_42 /* Server */,
 			);
 			name = "Today-News-Server";
@@ -1590,7 +1590,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_175 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

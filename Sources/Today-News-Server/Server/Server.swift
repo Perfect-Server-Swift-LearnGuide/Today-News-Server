@@ -11,32 +11,15 @@ import PerfectHTTP
 import PerfectHTTPServer
 
 
-struct ResponseFilter: HTTPResponseFilter {
-    func filterHeaders(response: HTTPResponse, callback: (HTTPResponseFilterResult) -> ()) {
-        /// 设置响应头
-        response.setHeader(.contentType, value: "application/json")
-        callback(.done)
-    }
-    func filterBody(response: HTTPResponse, callback: (HTTPResponseFilterResult) -> ()) {
-        callback(.done)
-    }
-}
-
-
-
 public struct App {
     /// 服务器
     public var server = HTTPServer()
     
     public init() {
-    
-        let responseFilters: [(HTTPResponseFilter, HTTPFilterPriority)] = [
-            (ResponseFilter(), HTTPFilterPriority.high)
-        ]
 
+        /// 添加过滤器
         server.setRequestFilters(SK_Dispatch.requestFilters)
-        /// t添加响应过滤器
-        server.setResponseFilters(responseFilters)
+        server.setResponseFilters(SK_Dispatch.responseFilters)
         
         /// 监听端口
         server.serverPort = UInt16(app.hostport)

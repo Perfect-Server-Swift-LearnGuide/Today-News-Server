@@ -23,16 +23,12 @@ public struct Route {
         
         /// 用户
         let user = User.user()
-//        baseRoutes.add(method: )
         
-//        /// 文章
-        baseRoutes.add(method: .get, uri: "*", handler: {
-            req, res in
-            print("route");
-        })
-//
-//        /// 用户
-//        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
+       /// 文章
+        baseRoutes.add(method: .get, uri: "article/{action}", handler: user)
+
+        /// 用户
+        baseRoutes.add(method: .get, uri: "user/{action}", handler: user)
         
         /// 注册到服务器主路由表上
         self.routes.add(baseRoutes)
