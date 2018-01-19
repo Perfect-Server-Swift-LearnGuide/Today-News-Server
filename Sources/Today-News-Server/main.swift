@@ -23,7 +23,7 @@ import PerfectHTTPServer
 import Foundation
 
 print(NSClassFromString("ffff"))
-
+print(App.self)
 
 
 
