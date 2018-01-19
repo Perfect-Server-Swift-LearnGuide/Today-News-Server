@@ -13,7 +13,7 @@ import PerfectMongoDB
 public class ArticleComment: SK_Model {
 
     
-    public init() {
+    override public init() {
         let _  = DB(db: "today_news").collection(name: "comment")
     }
     
