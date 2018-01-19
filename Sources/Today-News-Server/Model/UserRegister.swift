@@ -1,5 +1,5 @@
 //
-//  UserRegisterModel.swift
+//  UserRegister.swift
 //  Today-News-Server
 //
 //  Created by Mac on 17/8/27.
@@ -9,7 +9,7 @@
 import PerfectLib
 import PerfectMongoDB
 
-public class UserRegisterModel: SK_Model {
+public class UserRegister: SK_Model {
     
     
     override public init() {

@@ -1,5 +1,5 @@
 //
-//  UserTabModel.swift
+//  UserTab.swift
 //  Today-News-Server
 //
 //  Created by Mac on 17/7/27.
@@ -9,7 +9,7 @@
 import PerfectLib
 import PerfectMongoDB
 
-public class UserTabModel: SK_Model {
+public class UserTab: SK_Model {
     
     override public init() {
         super.init()

@@ -1,5 +1,5 @@
 //
-//  ArticleCategoryModel.swift
+//  ArticleCategory.swift
 //  Today-News-Server
 //
 //  Created by 百城 on 16/10/29.
@@ -10,7 +10,7 @@ import PerfectLib
 
 import PerfectMongoDB
 
-public class ArticleCategoryModel: SK_Model {
+public class ArticleCategory: SK_Model {
     
     override public init() {
         super.init()
